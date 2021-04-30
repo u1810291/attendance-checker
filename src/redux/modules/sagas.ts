@@ -1,0 +1,1 @@
+export { default as attendeesSaga } from './attendees/sagas'
