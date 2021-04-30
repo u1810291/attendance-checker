@@ -1,10 +1,8 @@
-import React from 'react';
 import { Dektop } from './style';
 
-export default ({ prop: children }) => 
+export default (children: any) =>
 (
   <Dektop>
-    {children}
+    {children.children}
   </Dektop>
 )
-
