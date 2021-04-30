@@ -1,10 +1,15 @@
 import React from 'react';
 import { Dektop } from './style';
 
-export default ({ prop: children }) => 
+interface WrapperProps {
+  children: any
+}
+
+const Wrapper: React.FC<WrapperProps> = ({ children }) =>
 (
   <Dektop>
     {children}
   </Dektop>
 )
 
+export default Wrapper;

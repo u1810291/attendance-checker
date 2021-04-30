@@ -10,8 +10,6 @@
     "@types/node": "^12.20.11",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "eslint-config-airbnb-typescript": "^12.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -22,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "eslint . --ext .ts",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,6 +43,10 @@
   },
   "devDependencies": {
     "@types/eslint": "^7.2.10",
-    "@types/styled-components": "^5.1.9"
+    "@types/styled-components": "^5.1.9",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "eslint-config-airbnb-typescript": "^7.2.1",
+    "eslint-plugin-import": "^2.22.1"
   }
 }
