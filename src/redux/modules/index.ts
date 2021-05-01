@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { combineReducers } from 'redux'
 import { all } from 'redux-saga/effects'
 import * as reducers from './reducers'

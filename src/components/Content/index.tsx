@@ -1,6 +1,6 @@
-import { Container, Content } from './style'
-import { Route, Redirect } from 'react-router-dom'
-import routes from '../../routes/main-routes'
+import { Container, Content } from './style';
+import { Route, Redirect } from 'react-router-dom';
+import routes from '../../routes/main-routes';
 
 export default () => {
   return (

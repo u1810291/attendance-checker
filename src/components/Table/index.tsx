@@ -1,6 +1,5 @@
-import * as React from "react";
+import { useMemo } from 'react';
 import { useTable } from 'react-table';
-import "./styles.css";
 import makeData from './makedata';
 import { Container } from './style';
 
@@ -42,7 +41,7 @@ function Table({ columns, data }: any) {
   )
 }
 export default function App() {
-  const columns = React.useMemo(
+  const columns = useMemo(
     () => [
       {
         Header: 'Name',
@@ -82,7 +81,7 @@ export default function App() {
     []
   )
 
-  const data = React.useMemo(() => makeData(20), []);
+  const data = useMemo(() => makeData(20), []);
   return (
     <Container>
       <Table columns={columns} data={data} />

@@ -1,11 +1,11 @@
+/* eslint-disable no-console */
 import { useState } from 'react'
-import axios from 'axios';
 import service from '../../../services/login'
 export default () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const login = () => {
-    axios.post('https://demo.kipod.com/api/v1/users/login', { name, password }).then((res) => console.log(res))
+    service.login(name, password).then((res) => console.log(res))
   }
   return (
     <div>
