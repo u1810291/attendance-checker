@@ -5,6 +5,7 @@ import { setData } from './actions'
 function* fetchData() {
   try {
     const res = ['object']
+    console.log(res)
     yield put(setData(res))
   }
   catch (err) {
@@ -12,6 +13,6 @@ function* fetchData() {
   }
 }
 
-export default function* attendeesSaga() {
+export default function* attendees() {
   yield takeLatest(types.GET_PERSON_FACE_IN, fetchData)
 }
