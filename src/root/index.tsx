@@ -1,5 +1,4 @@
 import App from '../containers/App'
-import Wrapper from '../components/Wrapper'
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { Provider } from 'react-redux'
