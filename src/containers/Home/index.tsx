@@ -1,9 +1,13 @@
-import Sidebar from '../../components/Sidebar'
+import Sidebar from '../../components/Sidebar';
+import Content from '../../components/Content';
+import Container from '../../components/Wrapper';
+
 
 export default () => {
   return (
-    <div>
+    <Container>
       <Sidebar />
-    </div>
+      <Content />
+    </Container>
   )
 }

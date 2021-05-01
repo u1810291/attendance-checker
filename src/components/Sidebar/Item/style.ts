@@ -5,5 +5,8 @@ export const Container = styled.div`
   align-items: center;
   cursor: pointer;
   height: 52px;
-  background: ;
+  margin-left:20px;
+  &:hover{
+    opacity: 0.8;
+  }
 `
