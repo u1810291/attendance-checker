@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useMemo } from 'react';
 import { useTable } from 'react-table';
 import makeData from './makedata';
@@ -26,16 +27,18 @@ function Table({ columns, data }: any) {
         ))}
       </thead>
       <tbody {...getTableBodyProps()}>
-        {rows.map((row, i) => {
-          prepareRow(row)
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map(cell => {
-                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-              })}
-            </tr>
-          )
-        })}
+        {
+          // eslint-disable-next-line no-unused-vars 
+          rows.map((row, i) => {
+            prepareRow(row)
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map(cell => {
+                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                })}
+              </tr>
+            )
+          })}
       </tbody>
     </table>
   )

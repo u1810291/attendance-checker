@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import namor from 'namor'
 
 const range = (len: any) => {
