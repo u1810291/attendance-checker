@@ -43,7 +43,14 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "parser": "typescript-eslint-parser",
+    "plugins": [
+      "typescript"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
   },
   "browserslist": {
     "production": [

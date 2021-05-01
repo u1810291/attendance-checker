@@ -37,7 +37,8 @@ export default function makeData(...lens: any) {
         }
       })
     }
-    if (!len) { return null }
+    return null
+
   }
 
   return makeDataLevel()
