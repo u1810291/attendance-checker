@@ -15,6 +15,7 @@ export default () => {
             />
           </div>
         ))}
+        <Redirect from="*" to="/list" />
       </Content>
     </Container>
   )
