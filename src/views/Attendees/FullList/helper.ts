@@ -1,64 +1,69 @@
-export const data = [
+
+export const headers = [
   {
-    "score": 17.592657,
-    "show": {
-      "id": 44813,
-      "url": "http://www.tvmaze.com/shows/44813/the-snow-spider",
-      "name": "The Snow Spider",
-      "type": "Scripted",
-      "language": "English",
-      "genres": [
-        "Drama",
-        "Fantasy"
-      ],
-      "status": "In Development",
-      "runtime": 30,
-      "premiered": null,
-      "officialSite": null,
-      "schedule": {
-        "time": "",
-        "days": [
-
-        ]
-      }
-    }
-  }
-]
-
-
-export const columns = [
-  {
-    Header: "TV Show",
-    columns: [
-      {
-        Header: "Name",
-        accessor: "show.name"
-      },
-      {
-        Header: "Type",
-        accessor: "show.type"
-      }
-    ]
+    header: 'ID',
+    accessor: 'id'
   },
   {
-    Header: "Details",
-    columns: [
-      {
-        Header: "Language",
-        accessor: "show.language"
-      },
-      {
-        Header: "Genre(s)",
-        accessor: "show.genres"
-      },
-      {
-        Header: "Runtime",
-        accessor: "show.runtime"
-      },
-      {
-        Header: "Status",
-        accessor: "show.status"
-      }
-    ]
+    header: "Name",
+    accessor: 'name'
+  },
+  {
+    header: "Morning check",
+    accessor: 'morning'
+  },
+  {
+    header: "First check",
+    accessor: 'first_check'
+  },
+  {
+    header: "Second check",
+    accessor: 'secon_check'
+  },
+  {
+    header: "Third check",
+    accessor: 'third_check'
+  },
+  {
+    header: "Fourth check",
+    accessor: 'fourth_check'
+  },
+  {
+    header: "Total attends",
+    accessor: 'total_attends'
+  },
+  {
+    header: "Total absence",
+    accessor: 'total_absence'
+  },
+  {
+    header: "Absence hours",
+    accessor: 'absence_hours'
+  }
+]
+export const data = [
+  {
+    id: 'ID',
+    name: 'Name',
+    morning: 'morning',
+    first_check: 'first_check',
+    secon_check: 'secon_check',
+    third_check: 'third_check',
+    fourth_check: 'fourth_check',
+    total_attends: 'total_attends',
+    total_absence: 'total_absence',
+    absence_hours: 'absence_hours'
+  },
+  {
+    id: 'ID',
+    name: 'Name',
+    morning: 'morning',
+    first_check: 'first_check',
+    secon_check: 'secon_check',
+    third_check: 'third_check',
+    fourth_check: 'fourth_check',
+    total_attends: 'total_attends',
+    total_absence: 'total_absence',
+    absence_hours: 'absence_hours'
   }
 ]

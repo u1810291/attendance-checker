@@ -53,5 +53,17 @@ export const data = [
     total_attends: 'total_attends',
     total_absence: 'total_absence',
     absence_hours: 'absence_hours'
+  },
+  {
+    id: 'ID',
+    name: 'Name',
+    morning: 'morning',
+    first_check: 'first_check',
+    secon_check: 'secon_check',
+    third_check: 'third_check',
+    fourth_check: 'fourth_check',
+    total_attends: 'total_attends',
+    total_absence: 'total_absence',
+    absence_hours: 'absence_hours'
   }
 ]
