@@ -1,8 +1,9 @@
+import Sidebar from '../../components/Sidebar'
 
 export default () => {
   return (
     <div>
-      Home
+      <Sidebar />
     </div>
   )
 }

@@ -8,7 +8,9 @@ import store from '../redux/store'
 export default () => (
   <Provider store={store}>
     <Router>
-      <App />
+      <Wrapper>
+        <App />
+      </Wrapper>
     </Router>
   </Provider>
 )
