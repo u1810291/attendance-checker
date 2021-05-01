@@ -1,93 +1,28 @@
-/* eslint-disable no-unused-vars */
-import { useMemo } from 'react';
-import { useTable } from 'react-table';
-import makeData from './makedata';
-import { Container } from './style';
 
-function Table({ columns, data }: any) {
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow
-  } = useTable({
-    columns, data
-  })
-  // Render the UI for your table
+
+export default ({ headers, data }: any) => {
   return (
-    <table {...getTableProps()}>
-      <thead>
-        {headerGroups.map(headerGroup => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-            ))}
+    <div>
+      <table>
+        <thead>
+          <tr >
+            {headers.map(({ header }: any, index: number) =>
+              <th key={index + 1}>{header}</th>
+            )}
           </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {
-          // eslint-disable-next-line no-unused-vars 
-          rows.map((row, i) => {
-            prepareRow(row)
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                })}
-              </tr>
-            )
-          })}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {data.map((row: any, index: number) =>
+            <tr key={index + 1}>
+              {Object.values(row).map((el: any, index: number) =>
+                <td key={index + 1}>
+                  {el}
+                </td>
+              )}
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div >
   )
-}
-export default function App() {
-  const columns = useMemo(
-    () => [
-      {
-        Header: 'Name',
-        columns: [
-          {
-            Header: 'First Name',
-            accessor: 'firstName'
-          },
-          {
-            Header: 'Last Name',
-            accessor: 'lastName'
-          }
-        ]
-      },
-      {
-        Header: 'Info',
-        columns: [
-          {
-            Header: 'Age',
-            accessor: 'age'
-          },
-          {
-            Header: 'Visits',
-            accessor: 'visits'
-          },
-          {
-            Header: 'Status',
-            accessor: 'status'
-          },
-          {
-            Header: 'Profile Progress',
-            accessor: 'progress'
-          }
-        ]
-      }
-    ],
-    []
-  )
-
-  const data = useMemo(() => makeData(20), []);
-  return (
-    <Container>
-      <Table columns={columns} data={data} />
-    </Container>
-  );
 }

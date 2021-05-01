@@ -1,4 +1,4 @@
-module.exports = {
+module = {
   root: true,
   parser: '@typescript-eslint/parser',
   plugins: [
@@ -11,6 +11,7 @@ module.exports = {
   rules: {
     'no-console': 2,
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+    "import/extensions": "off",
     'react/prefer-stateless-function': 'off',
     indent: ['error', 2],
     'comma-dangle': ['error', 'never'],
@@ -26,12 +27,11 @@ module.exports = {
   },
   "overrides": [
     {
-      // enable the rule specifically for TypeScript files
       "files": ["*.ts", "*.tsx"],
       "rules": {
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "off"
       }
     }
   ]
