@@ -48,35 +48,35 @@ export default function App() {
         columns: [
           {
             Header: 'First Name',
-            accessor: 'firstName',
+            accessor: 'firstName'
           },
           {
             Header: 'Last Name',
-            accessor: 'lastName',
-          },
-        ],
+            accessor: 'lastName'
+          }
+        ]
       },
       {
         Header: 'Info',
         columns: [
           {
             Header: 'Age',
-            accessor: 'age',
+            accessor: 'age'
           },
           {
             Header: 'Visits',
-            accessor: 'visits',
+            accessor: 'visits'
           },
           {
             Header: 'Status',
-            accessor: 'status',
+            accessor: 'status'
           },
           {
             Header: 'Profile Progress',
-            accessor: 'progress',
-          },
-        ],
-      },
+            accessor: 'progress'
+          }
+        ]
+      }
     ],
     []
   )

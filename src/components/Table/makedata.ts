@@ -21,7 +21,7 @@ const newPerson = () => {
         ? 'relationship'
         : statusChance > 0.33
           ? 'complicated'
-          : 'single',
+          : 'single'
   }
 }
 
@@ -33,7 +33,7 @@ export default function makeData(...lens: any) {
       return range(len).map((d: any) => {
         return {
           ...newPerson(),
-          subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
+          subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined
         }
       })
     }
