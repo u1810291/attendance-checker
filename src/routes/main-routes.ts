@@ -11,7 +11,7 @@ export default [
   {
     exact: true,
     path: '/attendees',
-    title: 'Attendanees',
+    title: 'Attendees',
     component: FullList
   }
 
