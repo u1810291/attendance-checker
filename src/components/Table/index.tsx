@@ -1,4 +1,4 @@
-
+import Image from './Image'
 
 export default ({ headers, data }: any) => {
   return (
@@ -14,9 +14,10 @@ export default ({ headers, data }: any) => {
         <tbody>
           {data.map((row: any, index: number) =>
             <tr key={index + 1}>
-              {Object.values(row).map((el: any, index: number) =>
-                <td key={index + 1}>
-                  {el}
+              {Object.values(row).map((el: any, idx: number) =>
+                <td key={idx + 1}>
+                  {headers[idx].type === 'image' ?
+                    <Image data={el} /> : el}
                 </td>
               )}
             </tr>

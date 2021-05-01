@@ -9,7 +9,7 @@ export default () => {
     <Container>
       <Switch>
         <Route exact path="/signin" component={SignIn} />
-        {/* <Redirect from="*" to="/signin" /> */}
+        <Redirect from="*" to="/signin" />
       </Switch>
     </Container>
   )
@@ -20,5 +20,5 @@ export default () => {
       </Switch>
     </Container>
   )
-  return protectedRoutes
+  return publicRouter
 }
