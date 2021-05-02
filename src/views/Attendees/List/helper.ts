@@ -8,183 +8,104 @@ export const links = [
 
 export const headers = [
   {
-    header: 'ID',
+    header: '№',
     accessor: 'id',
     type: 'id'
   },
   {
-    header: "First name",
-    accessor: 'first_name',
-    type: 'name'
-  },
-  {
-    header: "Last name",
-    accessor: 'last_name',
-    type: 'name'
-  },
-  {
-    header: "list id",
-    accessor: 'list_id',
-    type: 'id'
-  },
-  {
-    header: "Avatar id",
-    accessor: 'avatar_image_id',
-    type: 'id'
-  },
-  {
-    header: "Images",
-    accessor: 'images',
+    header: "Фото сурат",
+    accessor: 'image',
     type: 'image'
   },
   {
-    header: "Plates",
-    accessor: 'plates',
+    header: "Ф.И.Ш (унвони, лавозими)",
+    accessor: 'full_info',
+    type: 'name'
+  },
+  {
+    header: "Кириш вақти",
+    accessor: 'in_time',
+    type: 'name'
+  },
+  {
+    header: "Чиқиш вақти",
+    accessor: 'out_time',
+    type: 'id'
+  },
+  {
+    header: "Кириш сони",
+    accessor: 'in_count',
+    type: 'id'
+  },
+  {
+    header: "Чиқиш сони",
+    accessor: 'out_count',
     type: 'image'
   },
   {
-    header: "Plates count",
-    accessor: 'plates_count',
+    header: "Ишда бўлган вақти",
+    accessor: 'in_work_time',
+    type: 'image'
+  },
+  {
+    header: "Ишдан ташқарида бўлганвақти",
+    accessor: 'out_work_time',
+    type: 'id'
+  },
+  {
+    header: "Хозирги вақтда",
+    accessor: 'current_time',
     type: 'id'
   }
 ]
 export const data = [
   {
-    id: 17282,
-    first_name: "google",
-    last_name: "google",
-    list_id: 1158,
-    avatar_image_id: 266292,
-    images: [
-      {
-        id: 266292,
-        alg_type: 2,
-        image: "/api/v1/faces/17282/images/266292/image?imghash=2cd66178e44a59847b6bd1b08ce78ca8",
-        quality: 0.6115514,
-        major_version: 20200706,
-        minor_version: 1,
-        image_hash: "2cd66178e44a59847b6bd1b08ce78ca8",
-        face_id: 17282,
-        image_thumbnail: "/api/v1/faces/17282/images/266292/image-thumbnail?imghash=2cd66178e44a59847b6bd1b08ce78ca8",
-        status: "OK"
-      }
-    ],
-    plates: [],
-    plates_count: 0
+    id: 1,
+    image: '',
+    full_info: 'КАТТА СЕРЖАНТ Азизов Нодир Комилович МУХАНДИС',
+    in_time: ['09:00'],
+    out_time: '13:10',
+    in_count: 1,
+    out_count: 1,
+    in_work_time: '05:10:45',
+    out_work_time: '-',
+    current_time: 'yes',
   },
   {
-    id: 17281,
-    first_name: "agent111",
-    last_name: "agent",
-    list_id: 1158,
-    avatar_image_id: 266291,
-    images: [
-      {
-        id: 266291,
-        alg_type: 2,
-        image: "/api/v1/faces/17281/images/266291/image?imghash=d53b481440d7314b286472cdeb4ceb99",
-        quality: 0.49462447,
-        major_version: 20200706,
-        minor_version: 1,
-        image_hash: "d53b481440d7314b286472cdeb4ceb99",
-        face_id: 17281,
-        image_thumbnail: "/api/v1/faces/17281/images/266291/image-thumbnail?imghash=d53b481440d7314b286472cdeb4ceb99",
-        status: "OK"
-      }
+    id: 1,
+    image: '',
+    full_info: 'КАТТА СЕРЖАНТ Жалилов Акром Саидович БОШ МУТАХАССИС',
+    in_time: [
+      '09:00',
+      '10,15',
+      '11:50'
     ],
-    plates: [],
-    plates_count: 0
+    out_time: [
+      "10:05",
+      "11:35"
+    ],
+    in_count: 3,
+    out_count: 3,
+    in_work_time: '04:25:34',
+    out_work_time: '01:12:55',
+    current_time: 'yes',
   },
   {
-    id: 17280,
-    first_name: "Shuxrat",
-    last_name: "eqweqw",
-    list_id: 1158,
-    avatar_image_id: 266290,
-    images: [
-      {
-        id: 266290,
-        alg_type: 2,
-        image: "/api/v1/faces/17280/images/266290/image?imghash=a3cf2f895a39ac9daaf38ed7f4b5a695",
-        quality: 0.75253224,
-        major_version: 20200706,
-        minor_version: 1,
-        image_hash: "a3cf2f895a39ac9daaf38ed7f4b5a695",
-        face_id: 17280,
-        image_thumbnail: "/api/v1/faces/17280/images/266290/image-thumbnail?imghash=a3cf2f895a39ac9daaf38ed7f4b5a695",
-        status: "OK"
-      }
+    id: 1,
+    image: '',
+    full_info: 'СЕРЖАНТ Абдукадиров Салим Ботиров МУХАНДИС',
+    in_time: [
+      '09:00',
+      '12:45'
     ],
-    plates: [],
-    plates_count: 0
+    out_time: [
+      '12:30',
+      '13:50'
+    ],
+    in_count: 2,
+    out_count: 3,
+    in_work_time: '05:10:45',
+    out_work_time: '02:19:22',
+    current_time: '',
   },
-  {
-    id: 17279,
-    first_name: "Third",
-    last_name: "Person",
-    list_id: 1158,
-    avatar_image_id: 266289,
-    images: [
-      {
-        id: 266289,
-        alg_type: 2,
-        image: "/api/v1/faces/17279/images/266289/image?imghash=62e2688d3c3c512b9e6d565669b1cc06",
-        quality: 0.7675786,
-        major_version: 20200706,
-        minor_version: 1,
-        image_hash: "62e2688d3c3c512b9e6d565669b1cc06",
-        face_id: 17279,
-        image_thumbnail: "/api/v1/faces/17279/images/266289/image-thumbnail?imghash=62e2688d3c3c512b9e6d565669b1cc06",
-        status: "OK"
-      }
-    ],
-    plates: [],
-    plates_count: 0
-  },
-  {
-    id: 17278,
-    first_name: "Second",
-    last_name: "Person",
-    list_id: 1158,
-    avatar_image_id: 266288,
-    images: [
-      {
-        id: 266288,
-        alg_type: 2,
-        image: "/api/v1/faces/17278/images/266288/image?imghash=9c0f369ccd4fdacf96a73b8bdb84daee",
-        quality: 0.5955136,
-        major_version: 20200706,
-        minor_version: 1,
-        image_hash: "9c0f369ccd4fdacf96a73b8bdb84daee",
-        face_id: 17278,
-        image_thumbnail: "/api/v1/faces/17278/images/266288/image-thumbnail?imghash=9c0f369ccd4fdacf96a73b8bdb84daee",
-        status: "OK"
-      }
-    ],
-    plates: [],
-    plates_count: 0
-  },
-  {
-    id: 17277,
-    first_name: "First",
-    last_name: "Person",
-    list_id: 1158,
-    avatar_image_id: 266287,
-    images: [
-      {
-        id: 266287,
-        alg_type: 2,
-        image: "/api/v1/faces/17277/images/266287/image?imghash=fa2dc1f00dbfbcd4ed711b85ae8296e5",
-        quality: 0.6383728,
-        major_version: 20200706,
-        minor_version: 1,
-        image_hash: "fa2dc1f00dbfbcd4ed711b85ae8296e5",
-        face_id: 17277,
-        image_thumbnail: "/api/v1/faces/17277/images/266287/image-thumbnail?imghash=fa2dc1f00dbfbcd4ed711b85ae8296e5",
-        status: "OK"
-      }
-    ],
-    plates: [],
-    plates_count: 0
-  }
 ]

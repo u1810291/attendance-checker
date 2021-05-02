@@ -1,4 +1,10 @@
-
+export const links = [
+  "#",
+  "#",
+  "#",
+  "#",
+  "#",
+]
 export const headers = [
   {
     header: 'ID',
@@ -42,6 +48,18 @@ export const headers = [
   }
 ]
 export const data = [
+  {
+    id: 'ID',
+    name: 'Name',
+    morning: 'morning',
+    first_check: 'first_check',
+    secon_check: 'secon_check',
+    third_check: 'third_check',
+    fourth_check: 'fourth_check',
+    total_attends: 'total_attends',
+    total_absence: 'total_absence',
+    absence_hours: 'absence_hours'
+  },
   {
     id: 'ID',
     name: 'Name',

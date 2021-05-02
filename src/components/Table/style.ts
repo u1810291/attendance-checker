@@ -6,7 +6,7 @@ export const Container = styled.div`
   table {
     border-spacing: 0;
     border: 1px solid black;
-
+    width:100%;
     tr {
       :last-child {
         td {
