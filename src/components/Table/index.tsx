@@ -1,8 +1,9 @@
 import Image from './Image'
+import { Container } from './style'
 
 export default ({ headers, data }: any) => {
   return (
-    <div>
+    <Container>
       <table>
         <thead>
           <tr >
@@ -24,6 +25,6 @@ export default ({ headers, data }: any) => {
           )}
         </tbody>
       </table>
-    </div >
+    </Container>
   )
 }

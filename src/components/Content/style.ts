@@ -6,4 +6,7 @@ display: grid;
 grid-gap: 5px;
 grid-area: content;
 `
-export const Content = styled.div``
+export const Content = styled.div`
+  overflow: auto;
+  height: 98vh;
+`

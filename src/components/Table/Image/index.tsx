@@ -1,12 +1,16 @@
-import { Container, ImageWrap } from './style'
+import { Container, ImageWrap, Item, Image } from './style'
 
 const Images = ({ data }: any) => {
   return (
     <Container>
       <ImageWrap>
-        {data.map((el: any) => Object.values(el).map((item) => item))}
+        {console.log(data)}
+        {data.map((el: any) => Object.values(el).map((item: any, index: number) =>
+          <Item key={index + 1}>
+            {Object.keys(data)[index] === 'image' ? <Image src={item} /> : item}
+          </Item>
+        ))}
       </ImageWrap>
-      <img src="https://demo.kipod.com/api/v1/faces/17282/images/266292/image?imghash=2cd66178e44a59847b6bd1b08ce78ca8" />
     </Container>
   )
 

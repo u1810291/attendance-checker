@@ -26,11 +26,6 @@ export const headers = [
     type: 'id'
   },
   {
-    header: "Urls",
-    accessor: 'urls',
-    type: 'image'
-  },
-  {
     header: "Images",
     accessor: 'images',
     type: 'image'
@@ -53,7 +48,6 @@ export const data = [
     last_name: "google",
     list_id: 1158,
     avatar_image_id: 266292,
-    urls: [],
     images: [
       {
         id: 266292,
@@ -77,7 +71,6 @@ export const data = [
     last_name: "agent",
     list_id: 1158,
     avatar_image_id: 266291,
-    urls: [],
     images: [
       {
         id: 266291,
@@ -101,7 +94,6 @@ export const data = [
     last_name: "eqweqw",
     list_id: 1158,
     avatar_image_id: 266290,
-    urls: [],
     images: [
       {
         id: 266290,
@@ -125,7 +117,6 @@ export const data = [
     last_name: "Person",
     list_id: 1158,
     avatar_image_id: 266289,
-    urls: [],
     images: [
       {
         id: 266289,
@@ -149,7 +140,6 @@ export const data = [
     last_name: "Person",
     list_id: 1158,
     avatar_image_id: 266288,
-    urls: [],
     images: [
       {
         id: 266288,
@@ -173,7 +163,6 @@ export const data = [
     last_name: "Person",
     list_id: 1158,
     avatar_image_id: 266287,
-    urls: [],
     images: [
       {
         id: 266287,

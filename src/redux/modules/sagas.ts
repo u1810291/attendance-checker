@@ -1,1 +1,1 @@
-export { default as attendees } from './attendees/sagas'
+export { default as attendeesSagas } from './attendees/sagas'
