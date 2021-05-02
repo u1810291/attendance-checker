@@ -1,7 +1,8 @@
 import Image from './Image'
+import Pagination from './Pagination'
 import { Container } from './style'
 
-export default ({ headers, data }: any) => {
+export default ({ headers, data, links }: any) => {
   return (
     <Container>
       <table>
@@ -25,6 +26,10 @@ export default ({ headers, data }: any) => {
           )}
         </tbody>
       </table>
+      {data.length > 2 ?
+        <Pagination links={links} />
+        : null
+      }
     </Container>
   )
 }
