@@ -25,27 +25,27 @@ export const headers = [
   {
     header: "Кириш вақти",
     accessor: 'in_time',
-    type: 'name'
+    type: 'list'
   },
   {
     header: "Чиқиш вақти",
     accessor: 'out_time',
-    type: 'id'
+    type: 'list'
   },
   {
     header: "Кириш сони",
     accessor: 'in_count',
-    type: 'id'
+    type: 'count'
   },
   {
     header: "Чиқиш сони",
     accessor: 'out_count',
-    type: 'image'
+    type: 'count'
   },
   {
     header: "Ишда бўлган вақти",
     accessor: 'in_work_time',
-    type: 'image'
+    type: 'time'
   },
   {
     header: "Ишдан ташқарида бўлганвақти",
@@ -61,10 +61,10 @@ export const headers = [
 export const data = [
   {
     id: 1,
-    image: '',
+    image: require('../../../assets/images/1.jpeg'),
     full_info: 'КАТТА СЕРЖАНТ Азизов Нодир Комилович МУХАНДИС',
     in_time: ['09:00'],
-    out_time: '13:10',
+    out_time: ['13:10'],
     in_count: 1,
     out_count: 1,
     in_work_time: '05:10:45',
@@ -73,7 +73,7 @@ export const data = [
   },
   {
     id: 1,
-    image: '',
+    image: require('../../../assets/images/2.jpeg'),
     full_info: 'КАТТА СЕРЖАНТ Жалилов Акром Саидович БОШ МУТАХАССИС',
     in_time: [
       '09:00',
@@ -92,7 +92,7 @@ export const data = [
   },
   {
     id: 1,
-    image: '',
+    image: require('../../../assets/images/3.jpeg'),
     full_info: 'СЕРЖАНТ Абдукадиров Салим Ботиров МУХАНДИС',
     in_time: [
       '09:00',
