@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   table {
     border-spacing: 0;
-    border: 1px solid black;
+    border: 1px solid #c4c4c4;
     width:100%;
     tr {
       :last-child {
@@ -20,14 +20,14 @@ export const Container = styled.div`
     td{
       background: #c9dff6;
     }
+    // tr :nth-child(even){background-color: #f2f2f2;}
 
     th,
     td {
       margin: 0;
       padding: 0.5rem;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-
+      border: 1px solid #c4c4c4;
+      border: 1px solid #c4c4c4;
       :last-child {
         border-right: 0;
       }

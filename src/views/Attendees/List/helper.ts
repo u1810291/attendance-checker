@@ -72,7 +72,7 @@ export const data = [
     current_time: 'yes',
   },
   {
-    id: 1,
+    id: 2,
     image: require('../../../assets/images/2.jpeg'),
     full_info: 'КАТТА СЕРЖАНТ Жалилов Акром Саидович БОШ МУТАХАССИС',
     in_time: [
@@ -91,8 +91,62 @@ export const data = [
     current_time: 'yes',
   },
   {
-    id: 1,
+    id: 3,
     image: require('../../../assets/images/3.jpeg'),
+    full_info: 'СЕРЖАНТ Абдукадиров Салим Ботиров МУХАНДИС',
+    in_time: [
+      '09:00',
+      '12:45'
+    ],
+    out_time: [
+      '12:30',
+      '13:50'
+    ],
+    in_count: 2,
+    out_count: 3,
+    in_work_time: '05:10:45',
+    out_work_time: '02:19:22',
+    current_time: 'no',
+  },
+  {
+    id: 4,
+    image: require('../../../assets/images/4.jpeg'),
+    full_info: 'СЕРЖАНТ Абдукадиров Салим Ботиров МУХАНДИС',
+    in_time: [
+      '09:00',
+      '12:45'
+    ],
+    out_time: [
+      '12:30',
+      '13:50'
+    ],
+    in_count: 2,
+    out_count: 3,
+    in_work_time: '05:10:45',
+    out_work_time: '02:19:22',
+    current_time: 'no',
+  },
+  {
+    id: 5,
+    image: require('../../../assets/images/5.jpeg'),
+    full_info: 'СЕРЖАНТ Абдукадиров Салим Ботиров МУХАНДИС',
+    in_time: [
+      '09:00',
+      '12:45'
+    ],
+    out_time: [
+      '12:30',
+      '13:50'
+    ],
+    in_count: 2,
+    out_count: 3,
+    in_work_time: '05:10:45',
+    out_work_time: '02:19:22',
+    current_time: 'no',
+  },
+  {
+    id: 6,
+    image: require('../../../assets/images/6.jpeg'),
     full_info: 'СЕРЖАНТ Абдукадиров Салим Ботиров МУХАНДИС',
     in_time: [
       '09:00',
