@@ -15,7 +15,7 @@ export const headers = [
   {
     header: "Фото сурат",
     accessor: 'image',
-    type: 'some'
+    type: 'image'
   },
   {
     header: "Ф.И.Ш (унвони, лавозими)",
@@ -25,12 +25,12 @@ export const headers = [
   {
     header: "Кириш вақти",
     accessor: 'in_time',
-    type: 'image'
+    type: 'list'
   },
   {
     header: "Чиқиш вақти",
     accessor: 'out_time',
-    type: 'image'
+    type: 'list'
   },
   {
     header: "Кириш сони",
@@ -61,7 +61,7 @@ export const headers = [
 export const data = [
   {
     id: 1,
-    image: '',
+    image: require('../../../assets/images/1.jpeg'),
     full_info: 'КАТТА СЕРЖАНТ Азизов Нодир Комилович МУХАНДИС',
     in_time: ['09:00'],
     out_time: ['13:10'],
@@ -73,7 +73,7 @@ export const data = [
   },
   {
     id: 1,
-    image: '',
+    image: require('../../../assets/images/2.jpeg'),
     full_info: 'КАТТА СЕРЖАНТ Жалилов Акром Саидович БОШ МУТАХАССИС',
     in_time: [
       '09:00',
@@ -92,7 +92,7 @@ export const data = [
   },
   {
     id: 1,
-    image: '',
+    image: require('../../../assets/images/3.jpeg'),
     full_info: 'СЕРЖАНТ Абдукадиров Салим Ботиров МУХАНДИС',
     in_time: [
       '09:00',

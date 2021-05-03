@@ -1,4 +1,5 @@
 import Image from './Image'
+import Lists from './Lists'
 import Pagination from './Pagination'
 import { Container } from './style'
 
@@ -18,8 +19,11 @@ export default ({ headers, data, links }: any) => {
             <tr key={index + 1}>
               {Object.values(row).map((el: any, idx: number) =>
                 <td key={idx + 1}>
-                  {headers[idx].type === 'image' ?
-                    <Image data={el} /> : el}
+                  {headers[idx].type === 'list' ?
+                    <Lists data={el} /> :
+                    headers[idx].type === 'image' ?
+                      <Image data={el} /> :
+                      el}
                 </td>
               )}
             </tr>
