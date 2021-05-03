@@ -25,27 +25,27 @@ export const headers = [
   {
     header: "Кириш вақти",
     accessor: 'in_time',
-    type: 'name'
+    type: 'list'
   },
   {
     header: "Чиқиш вақти",
     accessor: 'out_time',
-    type: 'id'
+    type: 'list'
   },
   {
     header: "Кириш сони",
     accessor: 'in_count',
-    type: 'id'
+    type: 'count'
   },
   {
     header: "Чиқиш сони",
     accessor: 'out_count',
-    type: 'image'
+    type: 'count'
   },
   {
     header: "Ишда бўлган вақти",
     accessor: 'in_work_time',
-    type: 'image'
+    type: 'time'
   },
   {
     header: "Ишдан ташқарида бўлганвақти",
@@ -61,10 +61,10 @@ export const headers = [
 export const data = [
   {
     id: 1,
-    image: '',
+    image: require('../../../assets/images/1.jpeg'),
     full_info: 'КАТТА СЕРЖАНТ Азизов Нодир Комилович МУХАНДИС',
     in_time: ['09:00'],
-    out_time: '13:10',
+    out_time: ['13:10'],
     in_count: 1,
     out_count: 1,
     in_work_time: '05:10:45',
@@ -72,8 +72,8 @@ export const data = [
     current_time: 'yes',
   },
   {
-    id: 1,
-    image: '',
+    id: 2,
+    image: require('../../../assets/images/2.jpeg'),
     full_info: 'КАТТА СЕРЖАНТ Жалилов Акром Саидович БОШ МУТАХАССИС',
     in_time: [
       '09:00',
@@ -91,8 +91,8 @@ export const data = [
     current_time: 'yes',
   },
   {
-    id: 1,
-    image: '',
+    id: 3,
+    image: require('../../../assets/images/3.jpeg'),
     full_info: 'СЕРЖАНТ Абдукадиров Салим Ботиров МУХАНДИС',
     in_time: [
       '09:00',
@@ -106,6 +106,60 @@ export const data = [
     out_count: 3,
     in_work_time: '05:10:45',
     out_work_time: '02:19:22',
-    current_time: '',
+    current_time: 'no',
+  },
+  {
+    id: 4,
+    image: require('../../../assets/images/4.jpeg'),
+    full_info: 'СЕРЖАНТ Абдукадиров Салим Ботиров МУХАНДИС',
+    in_time: [
+      '09:00',
+      '12:45'
+    ],
+    out_time: [
+      '12:30',
+      '13:50'
+    ],
+    in_count: 2,
+    out_count: 3,
+    in_work_time: '05:10:45',
+    out_work_time: '02:19:22',
+    current_time: 'no',
+  },
+  {
+    id: 5,
+    image: require('../../../assets/images/5.jpeg'),
+    full_info: 'СЕРЖАНТ Абдукадиров Салим Ботиров МУХАНДИС',
+    in_time: [
+      '09:00',
+      '12:45'
+    ],
+    out_time: [
+      '12:30',
+      '13:50'
+    ],
+    in_count: 2,
+    out_count: 3,
+    in_work_time: '05:10:45',
+    out_work_time: '02:19:22',
+    current_time: 'no',
+  },
+  {
+    id: 6,
+    image: require('../../../assets/images/6.jpeg'),
+    full_info: 'СЕРЖАНТ Абдукадиров Салим Ботиров МУХАНДИС',
+    in_time: [
+      '09:00',
+      '12:45'
+    ],
+    out_time: [
+      '12:30',
+      '13:50'
+    ],
+    in_count: 2,
+    out_count: 3,
+    in_work_time: '05:10:45',
+    out_work_time: '02:19:22',
+    current_time: 'no',
   },
 ]
