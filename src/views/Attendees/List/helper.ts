@@ -15,7 +15,7 @@ export const headers = [
   {
     header: "Фото сурат",
     accessor: 'image',
-    type: 'image'
+    type: 'some'
   },
   {
     header: "Ф.И.Ш (унвони, лавозими)",
@@ -25,27 +25,27 @@ export const headers = [
   {
     header: "Кириш вақти",
     accessor: 'in_time',
-    type: 'name'
+    type: 'image'
   },
   {
     header: "Чиқиш вақти",
     accessor: 'out_time',
-    type: 'id'
+    type: 'image'
   },
   {
     header: "Кириш сони",
     accessor: 'in_count',
-    type: 'id'
+    type: 'count'
   },
   {
     header: "Чиқиш сони",
     accessor: 'out_count',
-    type: 'image'
+    type: 'count'
   },
   {
     header: "Ишда бўлган вақти",
     accessor: 'in_work_time',
-    type: 'image'
+    type: 'time'
   },
   {
     header: "Ишдан ташқарида бўлганвақти",
@@ -64,7 +64,7 @@ export const data = [
     image: '',
     full_info: 'КАТТА СЕРЖАНТ Азизов Нодир Комилович МУХАНДИС',
     in_time: ['09:00'],
-    out_time: '13:10',
+    out_time: ['13:10'],
     in_count: 1,
     out_count: 1,
     in_work_time: '05:10:45',
