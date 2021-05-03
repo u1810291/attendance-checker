@@ -1,5 +1,5 @@
-import axios, { service, execute } from '.'
-
+import { service, execute } from '.'
+import axios from 'axios'
 export default {
-  login: (name: string, password: string) => execute(axios.post('/v1/users/login', { name, password }))
+  login: async (data: any) => axios.post('https://demo.kipod.com/api/v1/users/login', data)
 }

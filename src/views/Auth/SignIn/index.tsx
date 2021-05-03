@@ -6,10 +6,12 @@ export default () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const login = () => {
-    service.login(name, password).then((res) => console.log(res));
+    const data = {
+      name: name, password: password.replace(/\\/g, '')
+    }
+    service.login(data).then((res) => console.log(res)).catch((err) => console.log(err));
     return name;
   };
-
   return (
     <div>
       <form onSubmit={(e) => { e.preventDefault(); login(); }}>
@@ -21,9 +23,9 @@ export default () => {
           onChange={(e) => setName(e.target.value)}
         />
         <input
-          name="password"
+          name="text"
           placeholder="Password"
-          type="password"
+          type="text"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
