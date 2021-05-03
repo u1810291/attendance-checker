@@ -13,12 +13,12 @@ export const Link = styled.a`
   border: 1px solid #ddd;
   margin: 0 4px;
   &:active {
-    background-color: #4CAF50;
+    background: #72b3fb;
     color: white;
     border: 1px solid #4CAF50;
   }
   &:focus {
-    background-color: #4CAF50;
+    background: #72b3fb;
     color: white;
     border: 1px solid #4CAF50;
   }

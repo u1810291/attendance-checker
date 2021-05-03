@@ -14,6 +14,12 @@ export const Container = styled.div`
         }
       }
     }
+    th{
+      background: #72b3fb;
+    }
+    td{
+      background: #c9dff6;
+    }
 
     th,
     td {
