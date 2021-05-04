@@ -50,12 +50,12 @@ export const headers = [
   {
     header: "Ишдан ташқарида бўлганвақти",
     accessor: 'out_work_time',
-    type: 'id'
+    type: 'icon'
   },
   {
     header: "Хозирги вақтда",
     accessor: 'current_time',
-    type: 'id'
+    type: 'icon'
   }
 ]
 export const data = [
