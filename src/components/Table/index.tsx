@@ -34,7 +34,7 @@ export default ({ headers, data, links, footer }: any) => {
           )}
         </tbody>
       </table>
-      {footer.length && <Footer />}
+      {footer.length && <Footer data={footer} />}
       {data.length > 2 ?
         <Pagination links={links} />
         : null

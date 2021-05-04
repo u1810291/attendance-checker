@@ -163,3 +163,9 @@ export const data = [
     current_time: 'yes',
   },
 ]
+
+export const footer = {
+  total: 6,
+  in_work: 4,
+  out_work: 2,
+}

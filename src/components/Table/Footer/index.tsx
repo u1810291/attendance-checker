@@ -1,15 +1,18 @@
-import { Container, IconWrapper } from './style'
-import Checked from '../../../assets/icons/checked.png'
-import Crossed from '../../../assets/icons/cross.png'
+import { Container } from './style';
 
 const Icon = ({ data }: any) => {
   return (
     <Container>
-      {console.log("Icon", data)}
-      {data === 'yes' ?
-        <IconWrapper src={Checked} /> :
-        <IconWrapper src={Crossed} />
-      }
+      <table>
+        <tr>
+          <th>Жами ходимлар сони:</th>
+          <td>{data.total}</td>
+          <th>Ҳозирда иш жойида:</th>
+          <td>{data.in_work}</td>
+          <th>Ҳозирда иш жойида йуқ:</th>
+          <td>{data.out_work}</td>
+        </tr>
+      </table>
     </Container>
   )
 }
