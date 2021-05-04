@@ -50,7 +50,7 @@ export const headers = [
   {
     header: "Ишдан ташқарида бўлганвақти",
     accessor: 'out_work_time',
-    type: 'icon'
+    type: 'time'
   },
   {
     header: "Хозирги вақтда",
@@ -124,7 +124,7 @@ export const data = [
     out_count: 3,
     in_work_time: '05:10:45',
     out_work_time: '02:19:22',
-    current_time: 'no',
+    current_time: 'yes',
   },
   {
     id: 5,
@@ -160,6 +160,6 @@ export const data = [
     out_count: 3,
     in_work_time: '05:10:45',
     out_work_time: '02:19:22',
-    current_time: 'no',
+    current_time: 'yes',
   },
 ]
