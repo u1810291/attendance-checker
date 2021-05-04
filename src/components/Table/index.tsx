@@ -1,10 +1,11 @@
-import Image from './Image'
-import Lists from './Lists'
-import Icon from './Icon'
-import Pagination from './Pagination'
-import { Container } from './style'
+import Image from './Image';
+import Lists from './Lists';
+import Icon from './Icon';
+import Footer from './Footer';
+import Pagination from './Pagination';
+import { Container } from './style';
 
-export default ({ headers, data, links }: any) => {
+export default ({ headers, data, links, footer }: any) => {
   return (
     <Container>
       <table>
@@ -33,6 +34,7 @@ export default ({ headers, data, links }: any) => {
           )}
         </tbody>
       </table>
+      {footer.length && <Footer />}
       {data.length > 2 ?
         <Pagination links={links} />
         : null
