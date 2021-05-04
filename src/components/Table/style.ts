@@ -18,6 +18,7 @@ export const Container = styled.div`
       background: #72b3fb;
     }
     td{
+      text-align: center;
       background: #c9dff6;
     }
     // tr :nth-child(even){background-color: #f2f2f2;}

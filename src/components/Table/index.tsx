@@ -24,7 +24,7 @@ export default ({ headers, data, links }: any) => {
                     <Lists data={el} /> :
                     headers[idx].type === 'image' ?
                       <Image data={el} /> :
-                      headers[idx] === 'icon' ?
+                      headers[idx].type === 'icon' ?
                         <Icon data={el} /> :
                         el}
                 </td>
