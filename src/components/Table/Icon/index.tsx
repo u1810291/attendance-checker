@@ -4,7 +4,6 @@ import checked from '../../../assets/icons/checked.png'
 
 const Images = ({ data }: any) => (
   <Container>
-    { console.log(data)}
     {data === 'yes' ?
       < Image src={checked} /> :
       <Image src={crossed} />
