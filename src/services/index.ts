@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://vg.kipod.com';
+const baseURL = 'https://demo.kipod.com/';
 
 const service = axios.create({ baseURL });
 

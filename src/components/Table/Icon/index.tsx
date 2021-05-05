@@ -5,7 +5,6 @@ import Crossed from '../../../assets/icons/cross.png'
 const Icon = ({ data }: any) => {
   return (
     <Container>
-      {console.log("Icon", data)}
       {data === 'yes' ?
         <IconWrapper src={Checked} /> :
         <IconWrapper src={Crossed} />
