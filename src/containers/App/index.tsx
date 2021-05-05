@@ -24,4 +24,4 @@ export default () => {
     </Container>
   )
   return !token ? publicRouter : protectedRoutes
-}
+
