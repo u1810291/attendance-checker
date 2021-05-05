@@ -5,13 +5,13 @@ export default [
   {
     exact: true,
     path: '/list',
-    title: 'Attendance list',
+    title: 'Ходимлар',
     component: List
   },
   {
     exact: true,
     path: '/attendees',
-    title: 'Attendees',
+    title: 'Умумий',
     component: FullList
   }
 
