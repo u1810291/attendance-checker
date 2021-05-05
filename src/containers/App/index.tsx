@@ -23,5 +23,5 @@ export default () => {
       </Switch>
     </Container>
   )
-  return !token ? publicRouter : protectedRoutes
-
+  return !token ? publicRouter : protectedRoutes;
+}
