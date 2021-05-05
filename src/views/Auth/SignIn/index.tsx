@@ -6,22 +6,22 @@ import { useHistory } from 'react-router-dom'
 
 export default () => {
   const [name, setName] = useState('');
-  const history = useHistory()
-  const [password, setPassword] = useState('');
   const cookies = new Cookies();
-  const login = () => {
+  const [password, setPassword] = useState('');
+  const signIn = () => {
     const data = {
       name: name, password: password.replace(/\\/g, '')
     }
     service.login(data).then((res) => {
-      cookies.set('token', res.status)
-      return history.push('/list')
+      cookies.set('token', res.status);
+      window.location.replace('/verify');
+      return res
     }).catch((err) => console.log(err));
     return name;
   };
   return (
     <div>
-      <form onSubmit={(e) => { e.preventDefault(); login(); }}>
+      <form onSubmit={(e) => { e.preventDefault(); signIn(); }}>
         <input
           name="name"
           placeholder="Name"
