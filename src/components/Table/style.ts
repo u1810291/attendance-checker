@@ -2,11 +2,13 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   padding: 1rem;
-
+  
   table {
     border-spacing: 0;
     border: 1px solid #c4c4c4;
-    width:100%;
+    width: 100%;
+    height: 60vh !important;
+    overflow: auto;
     tr {
       :last-child {
         td {

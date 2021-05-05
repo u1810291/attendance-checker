@@ -5,7 +5,7 @@ const defaultState = {
 }
 
 const map = {
-  [types.GET_PERSON_FACE_IN]: (state: any, { payload }: any) => ({
+  [types.AUTH_LOGIN]: (state: any, { payload }: any) => ({
     ...state,
     data: payload
   })

@@ -1,13 +1,17 @@
-import { Container, Image } from './style';
-import crossed from '../../../assets/icons/crossed.png'
-import checked from '../../../assets/icons/checked.png'
+import { Container, IconWrapper } from './style'
+import Checked from '../../../assets/icons/checked.png'
+import Crossed from '../../../assets/icons/cross.png'
 
-const Images = ({ data }: any) => (
-  <Container>
-    {data === 'yes' ?
-      < Image src={checked} /> :
-      <Image src={crossed} />
-    }
-  </Container>
-)
-export default Images
+const Icon = ({ data }: any) => {
+  return (
+    <Container>
+      {console.log("Icon", data)}
+      {data === 'yes' ?
+        <IconWrapper src={Checked} /> :
+        <IconWrapper src={Crossed} />
+      }
+    </Container>
+  )
+}
+
+export default Icon

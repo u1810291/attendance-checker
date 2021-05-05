@@ -1,13 +1,16 @@
 /* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects'
 import types from '../../../constants/action-types'
-import { setData } from './actions'
+import service from '../../../services/login'
 
-function* fetchData() {
+type anyThing = any
+
+function* login({ payload, success }: any): Generator<anyThing> {
   try {
-    const res = ['object']
-    console.log(res)
-    yield put(setData(res))
+    console.log(payload)
+    const res = yield service.login(payload);
+    console.log(res);
+    success(res);
   }
   catch (err) {
     console.log(err)
@@ -15,5 +18,5 @@ function* fetchData() {
 }
 
 export default function* attendees() {
-  yield takeLatest(types.GET_PERSON_FACE_IN, fetchData)
+  yield takeLatest(types.AUTH_LOGIN, login)
 }
