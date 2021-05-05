@@ -6,7 +6,6 @@ export default () => {
   const column = useMemo(() => headers, []);
   return (
     <div>
-      <h1>Full list</h1>
       <Table headers={column} data={data} links={links} footer={footer} />
     </div>
   )

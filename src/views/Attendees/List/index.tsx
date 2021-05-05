@@ -5,7 +5,6 @@ export default () => {
   const header = useMemo(() => headers, [])
   return (
     <div>
-      <h1>List</h1>
       <Table
         headers={header}
         data={data}
