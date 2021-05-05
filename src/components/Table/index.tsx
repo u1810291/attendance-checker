@@ -1,7 +1,8 @@
-import Image from './Image'
-import Lists from './Lists'
-import Pagination from './Pagination'
-import { Container } from './style'
+import Image from './Image';
+import Lists from './Lists';
+import Icon from './Icon';
+import Pagination from './Pagination';
+import { Container } from './style';
 
 export default ({ headers, data, links }: any) => {
   return (
@@ -23,7 +24,9 @@ export default ({ headers, data, links }: any) => {
                     <Lists data={el} /> :
                     headers[idx].type === 'image' ?
                       <Image data={el} /> :
-                      el}
+                      headers[idx].type === 'icon' ?
+                        <Icon data={el} /> :
+                        el}
                 </td>
               )}
             </tr>

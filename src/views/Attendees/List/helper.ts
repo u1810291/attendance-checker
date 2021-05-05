@@ -55,7 +55,7 @@ export const headers = [
   {
     header: "Хозирги вақтда",
     accessor: 'current_time',
-    type: 'id'
+    type: 'icon'
   }
 ]
 export const data = [

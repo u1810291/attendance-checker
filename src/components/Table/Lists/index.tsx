@@ -1,12 +1,13 @@
-import { Container, ImageWrap, Item, Image } from './style'
+import { Container, Item } from './style'
 
 const Images = ({ data }: any) => (
   <Container>
-    {data.map((el: any, index: number) => {
+    {data.map((el: any, index: number) => (
       <Item key={index + 1}>
-        <span>{el}</span>
+        {console.log(el)}
+        {el}
       </Item>
-    })}
+    ))}
   </Container>
 )
 export default Images
