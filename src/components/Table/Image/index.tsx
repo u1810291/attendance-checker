@@ -4,7 +4,8 @@ const Images = ({ data }: any) => (
   <Container>
     <Item>
       <ImageWrap>
-        <Image src={data.default} />
+        {console.log(data)}
+        <img src={data.default} />
       </ImageWrap>
     </Item>
   </Container>
