@@ -4,16 +4,10 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import SignIn from '../../views/Auth/SignIn';
 import Verify from '../../views/Auth/Verify';
 import Home from '../Home';
-import Cookies from 'universal-cookie';
 
 export default () => {
-  const cookies = new Cookies();
-  const [token, setToken] = useState('')
-  useEffect(() => {
-    const tokens = cookies.get('token');
-    setToken(tokens);
-    console.log(token)
-  }, [token])
+  const token = window.localStorage.getItem('token');
+  console.log(token);
   const publicRouter = (
     <Container>
       <Switch>

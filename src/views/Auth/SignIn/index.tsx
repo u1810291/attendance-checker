@@ -1,19 +1,16 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import service from '../../../services/login';
-import Cookies from 'universal-cookie';
-import { useHistory } from 'react-router-dom'
 
 export default () => {
   const [name, setName] = useState('');
-  const cookies = new Cookies();
   const [password, setPassword] = useState('');
   const signIn = () => {
     const data = {
       name: name, password: password.replace(/\\/g, '')
     }
-    service.login(data).then((res) => {
-      cookies.set('token', res.status);
+    service.login(data).then((res: any) => {
+      window.localStorage.setItem('token', res.status);
       window.location.replace('/verify');
       return res
     }).catch((err) => console.log(err));

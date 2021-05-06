@@ -2,11 +2,13 @@ import { useEffect, useMemo } from 'react'
 import Table from '../../../components/Table'
 import { headers, data, links, footer } from './helper'
 import service from '../../../services/attendees'
-
+import Cookies from 'universal-cookie';
 
 export default () => {
-  const header = useMemo(() => headers, [])
-  useEffect(() => {
+  const cookies = new Cookies();
+  const header = useMemo(() => headers, []);
+  console.log(document.cookie);
+  const getData = () => {
     const data = {
       "order": "DESC",
       "limit": 100,
@@ -22,9 +24,10 @@ export default () => {
     service.getFaces(data).then((res) => {
       console.log(res)
     }).catch((err) => { console.log(err) })
-  }, [])
+  }
   return (
     <div>
+      <button onClick={getData}>Ходимларни юклаш</button>
       <Table
         headers={header}
         data={data}
