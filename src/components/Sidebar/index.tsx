@@ -6,7 +6,7 @@ export default () => {
   return (
     <Wrap>
       <Main>
-        <Head>Head</Head>
+        <Head></Head>
         <Body>
           {routes.map(({ title, path }, index) => (
             <Item
@@ -16,7 +16,7 @@ export default () => {
           ))}
         </Body>
       </Main>
-      <Footer>Footer</Footer>
+      <Footer></Footer>
     </Wrap>
   )
 }
