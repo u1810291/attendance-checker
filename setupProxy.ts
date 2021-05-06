@@ -4,8 +4,8 @@ module.exports = function (app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://demo.kipod.com/',
+      target: process.env.REACT_APP_API_URI,
       changeOrigin: true,
     })
-  );
-};
+  )
+}
