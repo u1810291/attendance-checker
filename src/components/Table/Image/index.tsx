@@ -5,7 +5,7 @@ const Images = ({ data }: any) => (
     <Item>
       <ImageWrap>
         {console.log(data)}
-        <img src={data.default} />
+        <Image src={data.default} />
       </ImageWrap>
     </Item>
   </Container>
