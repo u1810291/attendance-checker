@@ -28,6 +28,6 @@ function* fetchData({ payload }) {
   }
 }
 
-export default function* adminGroupsSaga() {
-  yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
+export default function* attendeesSaga() {
+  yield takeLatest(types.TABLE_FETCH_DATA, fetchData);
 }
