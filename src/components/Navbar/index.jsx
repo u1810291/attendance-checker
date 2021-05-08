@@ -21,14 +21,10 @@ import Bell from '../Bell';
 import { logout } from '../../../redux/modules/auth/actions';
 import { ClickOutside } from '../../../hooks/click-outside';
 import Icon from '../../Icon';
-import Dropdown from '../../Forms/Dropdowns';
-import { language } from './options';
 import SearchableInput from '../../Forms/Inputs/Search';
 
-export default () => {
+const Navbar = () => {
   const clickRef = useRef(null);
-
-  const [commonDropdown, setCommonDropdown] = useState(undefined);
   const dispatch = useDispatch();
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
@@ -83,13 +79,6 @@ export default () => {
               <TextContainer.Name>{userInfo.username}</TextContainer.Name>
               <TextContainer.Email>{userInfo.email}</TextContainer.Email>
             </TextContainer>
-            <Dropdown
-              placeholder="RU"
-              options={language}
-              value={commonDropdown}
-              onChange={setCommonDropdown}
-              size="medium"
-            />
           </UserInfoContainer>
 
         </PopupContainer>
@@ -97,3 +86,4 @@ export default () => {
     </Container>
   );
 };
+export default Navbar;
