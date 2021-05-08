@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useState } from 'react';
 import makeData from './makeData';
 import SubRows from './SubRow';

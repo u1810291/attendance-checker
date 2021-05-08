@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable import/no-anonymous-default-export */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, {
   useCallback, useMemo
@@ -13,8 +15,7 @@ export default ({
   const columns = useMemo(() => header, [header]);
   const data = useMemo(() => tableData, [tableData]);
 
-  const renderRowSubComponent = useCallback(
-    ({ row, rowProps, visibleColumns }) => (
+  const renderRowSubComponent = useCallback(({ row, rowProps, visibleColumns }) => (
       <SubRowAsync
         row={row}
         subData={subData}
