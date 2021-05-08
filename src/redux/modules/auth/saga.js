@@ -9,17 +9,18 @@ import {
 
 function* login({ payload, success }) {
   try {
-    const { data } = yield service.getToken(payload);
-    success(data.access_token, data.refresh_token);
+    const data = yield service.login(payload);
+    console.log(data)
+    success(data);
   } catch (error) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
-function* validate({ payload }) {
+function* verify({ payload }) {
   try {
     // Handle token verify logic here
-    yield put(setAccessToken(payload.access_token));
+    yield put(setAccessToken(payload));
   } catch (error) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
@@ -27,5 +28,5 @@ function* validate({ payload }) {
 
 export default function* authSaga() {
   yield takeLatest(types.AUTH_LOGIN, login);
-  yield takeLatest(types.AUTH_VERIFY, validate);
+  yield takeLatest(types.AUTH_VERIFY, verify);
 }

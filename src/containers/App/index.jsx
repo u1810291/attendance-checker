@@ -14,7 +14,8 @@ export default ()=> {
       </Switch>
     </Container>
   );
-
+  
+  // eslint-disable-next-line no-unused-vars
   const protectedRoutes = (
     <Container>
       <Switch>
@@ -23,5 +24,5 @@ export default ()=> {
     </Container>
   );
 
-  return protectedRoutes;
+  return publicRoutes;
 }
