@@ -60,6 +60,7 @@ export const headers = [
     type: 'icon'
   }
 ]
+
 export async function getData() {
   let filtered;
   const data = {
@@ -76,6 +77,7 @@ export async function getData() {
   }).catch((err) => { console.log(err) })
   return filtered
 }
+
 export const data = [
   {
     id: 1,
