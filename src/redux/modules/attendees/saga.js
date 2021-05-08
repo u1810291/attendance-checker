@@ -1,31 +1,31 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
-import service from '../../../services/auth';
-
+import moduleName from '../../../services/'
 import {
-  setToken, setError
+  setData,
+  setError,
+  setLoading,
+  setTotal
 } from './actions';
 
-function* login({ payload, success }) {
+import { dataSelector } from './selectors';
+
+function* fetchData({ payload }) {
+  yield put(setLoading(true));
   try {
-    const data = yield service.login(payload);
-    success(data);
+    const res = yield service.getAll(payload.query);
+    const { total, data } = dataSelector(res.data);
+    yield put(setError(''));
+    yield put(setData(data));
+    yield put(setTotal(total));
+    yield put(setLoading(false));
   } catch (error) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
-function* verify({ payload }) {
-  try {
-    console.log(payload)
-    yield put(setToken(payload));
-  } catch (error) {
-    yield put(setError(error.response ? error.response.data.error_message : error));
-  }
-}
-
-export default function* authSaga() {
-  yield takeLatest(types.AUTH_LOGIN, login);
-  yield takeLatest(types.AUTH_VERIFY, verify);
+export default function* adminGroupsSaga() {
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
 }

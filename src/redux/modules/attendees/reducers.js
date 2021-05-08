@@ -1,25 +1,31 @@
 /* eslint-disable import/no-anonymous-default-export */
-/* eslint-disable camelcase */
 import types from '../../../constants/action-types';
 
 const defaultState = {
-  token: sessionStorage.getItem('token'),
+  data: [],
+  loading: false,
+  total: 0,
+  error: ''
 };
 
 const map = {
-  [types.AUTH_LOGOUT]: (state) => {
-    sessionStorage.removeItem('token');
-    return {
-      ...state, token: ''
-    };
-  },
-  [types.AUTH_ERROR]: (state, { payload }) => ({ ...state, error: payload }),
-  [types.AUTH_SET_ACCESS_TOKEN]: (state, { payload }) => {
-    sessionStorage.setItem('token', payload);
-    return {
-      ...state, token: payload
-    };
-  }
+  [types.TABLE_SET_LOADING]: (state, { payload }) => ({
+    ...state,
+    loading: payload
+  }),
+  [types.TABLE_SET_DATA]: (state, { payload }) => ({
+    ...state,
+    data: payload
+  }),
+  [types.TABLE_SET_TOTAL]: (state, { payload }) => ({
+    ...state,
+    total: payload
+  }),
+  [types.TABLE_ERROR]: (state, { payload }) => ({
+    ...state,
+    error: payload
+  })
+
 };
 
-export default (state = defaultState, action) => (map[action.type] && map[action.type](state, action)) || state;
+export default (state, action) => (map[action.type] && map[action.type](state, action)) || state || defaultState;
