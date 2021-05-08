@@ -4,7 +4,7 @@ import React from 'react'
 export default ()=> {
   return (
     <div>
-      Full list
+      Auth
     </div>
   )
 }
