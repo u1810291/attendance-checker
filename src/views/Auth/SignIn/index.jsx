@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { login, verify } from '../../redux/modules/auth/actions';
+import { login, verify } from '../../../redux/modules/auth/actions';
 import { useDispatch } from 'react-redux';
 
 export default ()=> {
@@ -12,10 +12,11 @@ export default ()=> {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login({name, password}, (res)=>{
-      if(res) verify(res.status)
-      console.log(res)
+      if(res) {
+        dispatch(verify(res.status))
+        return history.push('/verify')
+      }
     }))
-    history.push('/lists')
   }
   return (
     <div>

@@ -3,21 +3,21 @@
 import types from '../../../constants/action-types';
 
 const defaultState = {
-  access_token: sessionStorage.getItem('access_token'),
+  token: sessionStorage.getItem('token'),
 };
 
 const map = {
   [types.AUTH_LOGOUT]: (state) => {
-    sessionStorage.removeItem('access_token');
+    sessionStorage.removeItem('token');
     return {
-      ...state, access_token: '', refresh_token: ''
+      ...state, token: '', refresh_token: ''
     };
   },
   [types.AUTH_ERROR]: (state, { payload }) => ({ ...state, error: payload }),
-  [types.AUTH_SET_ACCESS_TOKEN]: (state, { payload }) => {
-    sessionStorage.setItem('access_token', payload);
+  [types.AUTH_SET_token]: (state, { payload }) => {
+    sessionStorage.setItem('token', payload);
     return {
-      ...state, access_token: payload
+      ...state, token: payload
     };
   }
 };

@@ -3,19 +3,22 @@ import React from 'react';
 import Home from '../Home';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { Container } from './style'
-import SignIn from '../../views/Auth'
+import SignIn from '../../views/Auth/SignIn'
+import Verify from '../../views/Auth/Verify'
 
 export default ()=> {
+  const token = sessionStorage.getItem('token')
+  console.log(token)
   const publicRoutes = (
     <Container>
       <Switch>
         <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/verify" component={Verify} />
         <Redirect from="*" to="/signin" />
       </Switch>
     </Container>
   );
   
-  // eslint-disable-next-line no-unused-vars
   const protectedRoutes = (
     <Container>
       <Switch>
@@ -24,5 +27,5 @@ export default ()=> {
     </Container>
   );
 
-  return publicRoutes;
+  return !token ? publicRoutes : protectedRoutes;
 }

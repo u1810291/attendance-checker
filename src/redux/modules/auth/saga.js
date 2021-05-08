@@ -4,13 +4,12 @@ import types from '../../../constants/action-types';
 import service from '../../../services/auth';
 
 import {
-  setAccessToken, setError
+  setToken, setError
 } from './actions';
 
 function* login({ payload, success }) {
   try {
     const data = yield service.login(payload);
-    console.log(data)
     success(data);
   } catch (error) {
     yield put(setError(error.response ? error.response.data.error_message : error));
@@ -19,8 +18,7 @@ function* login({ payload, success }) {
 
 function* verify({ payload }) {
   try {
-    // Handle token verify logic here
-    yield put(setAccessToken(payload));
+    yield put(setToken(payload));
   } catch (error) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }

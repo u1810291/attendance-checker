@@ -1,6 +1,6 @@
 import types from '../../../constants/action-types';
 
-export const setAccessToken = (payload) => ({ type: types.AUTH_SET_ACCESS_TOKEN, payload });
+export const setToken = (payload) => ({ type: types.AUTH_SET_ACCESS_TOKEN, payload });
 export const logout = () => ({ type: types.AUTH_LOGOUT });
 export const setError = () => ({ type: types.AUTH_ERROR });
 
