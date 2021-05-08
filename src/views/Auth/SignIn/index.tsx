@@ -1,8 +1,7 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import service from '../../../services/login';
 import Cookies from 'universal-cookie';
-import { useHistory } from 'react-router-dom'
 
 export default () => {
   const [name, setName] = useState('');
