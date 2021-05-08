@@ -1,3 +1,5 @@
+import service from '../../../services/attendees'
+
 export const links = [
   "#",
   "#",
@@ -58,6 +60,22 @@ export const headers = [
     type: 'icon'
   }
 ]
+export async function getData() {
+  let filtered;
+  const data = {
+    facelist: { ids: [] },
+    ids: [],
+    limit: 20,
+    offset: 0,
+    sort: "DESC",
+    sort_field: "id"
+  }
+  await service.getFaces(data).then((res) => {
+    filtered = res
+    console.log(filtered)
+  }).catch((err) => { console.log(err) })
+  return filtered
+}
 export const data = [
   {
     id: 1,
