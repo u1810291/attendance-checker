@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 import { DateRangePicker } from 'react-date-range';
 import CloseSvg from '../../../../../assets/icons/close.svg';
-import { device } from '../../../../../utils/responsive';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: ${({ showTimePicker }) => (showTimePicker ? 'row' : 'column')};
-  @media ${device.mobile} {
-    flex-direction: column;
-  }
+
 `;
 
 export const MobileContainer = styled.div`
@@ -32,9 +29,6 @@ export const TabletAndDesktopContainer = styled.div`
   position: absolute;
   top: 100%;
 
-  @media ${device.mobile} {
-    left: 0;
-  }
 `;
 
 export const DateRange = styled(DateRangePicker)`
@@ -51,14 +45,6 @@ export const DateRange = styled(DateRangePicker)`
 
   .rdrMonth {
     width: 23em;
-  }
-  @media ${device.mobile} {
-    .rdrCalendarWrapper {
-      width: -webkit-fill-available;
-    }
-    .rdrMonth {
-      width: -webkit-fill-available;
-    }
   }
 
   .rdrStartEdge {
@@ -160,10 +146,6 @@ export const Line = styled.div`
   border: 1px solid #ebebf3;
   margin-left: 24px;
   margin-right: 24px;
-  @media ${device.mobile} {
-    margin-left: unset;
-    margin-right: unset;
-  }
 `;
 
 export const ButtonContiner = styled.div`
@@ -185,9 +167,6 @@ export const Selection = styled.div`
   width: 206.08px;
   .react-time-picker {
     width: -webkit-fill-available;
-  }
-  @media ${device.mobile} {
-    width: unset;
   }
   .svg {
     margin-left: auto;

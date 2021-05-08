@@ -1,13 +1,10 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 import moment from 'moment';
-import * as devices from '../../../../../constants/devices';
-import { useWindowSize } from '../../../../../hooks/use-window-size';
-import BottomSheet from '../../../../BottomSheet';
 
 import {
   Container,
   DateRange,
-  MobileContainer,
   TabletAndDesktopContainer,
   Line,
   ClockRange,
@@ -31,7 +28,6 @@ export default ({
   right,
   showTimePicker = true
 }) => {
-  const { device } = useWindowSize();
   const content = (
     <Container showTimePicker={showTimePicker}>
       <DateRange
@@ -79,9 +75,7 @@ export default ({
         <>
           <Line />
           <ClockRange>
-            {device !== devices.MOBILE && (
-              <Close onClick={() => setIsPopoverOpen(false)} />
-            )}
+            <Close onClick={() => setIsPopoverOpen(false)} />
             <FromTo>
               <FromTo.Title>From</FromTo.Title>
               <DateContainer>
@@ -139,33 +133,9 @@ export default ({
     </Container>
   );
 
-  const swipeableWrapper = (
-    <BottomSheet
-      swipeableProps={{
-        open: isPopoverOpen,
-        onChange: handleOnExpand,
-        style: { zIndex: '10' }
-      }}
-      handleOnExpand={handleOnExpand}
-    >
-      <MobileContainer>{content}</MobileContainer>
-    </BottomSheet>
-  );
-
-  if (device === devices.MOBILE) return swipeableWrapper;
-  if (device === devices.TABLET) {
-    return (
+  return (
       <TabletAndDesktopContainer right={right} open={isPopoverOpen}>
         {content}
       </TabletAndDesktopContainer>
     );
-  }
-  if (device === devices.DESKTOP) {
-    return (
-      <TabletAndDesktopContainer right={right} open={isPopoverOpen}>
-        {content}
-      </TabletAndDesktopContainer>
-    );
-  }
-  return <></>;
 };

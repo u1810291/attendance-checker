@@ -1,5 +1,6 @@
-import * as types from '../../../constants/action-types';
-export const adminTariffsHeader = [{
+import types from '../../../constants/action-types';
+
+export const attendeesHeader = [{
   id: 1,
   align: 'end',
   disableSortBy: true,
