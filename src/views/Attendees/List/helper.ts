@@ -81,7 +81,7 @@ export async function getData() {
 export const data = [
   {
     id: 1,
-    image: require('../../../assets/images/1.jpeg'),
+    image: '/api/v1/faces/17282/images/266292/image-thumbnail?imghash=2cd66178e44a59847b6bd1b08ce78ca8',
     full_info: 'КАТТА СЕРЖАНТ Азизов Нодир Комилович МУХАНДИС',
     in_time: ['09:00'],
     out_time: ['13:10'],
