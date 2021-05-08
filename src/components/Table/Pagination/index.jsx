@@ -9,6 +9,8 @@ import {
 } from './style';
 import Dropdown from '../../Forms/DropdownV3';
 import { useButtons } from './useButtons';
+import {ReactComponent as LeftIcon} from '../../../assets/icons/angle-left.svg';
+import {ReactComponent as RightIcon} from '../../../assets/icons/angle-right.svg';
 
 const options = [
   { value: 10, label: '10 item view' },
@@ -61,21 +63,13 @@ const Pagination = ({
           disabled={!canPreviousPage}
           onClick={previousPage}
         >
-          <Icon
-            icon="arrow-left2"
-            color={!canPreviousPage ? '#C4C4C4' : '#262626'}
-            size="16px"
-          />
+          <LeftIcon/>
         </ChangeButton>
         <ChangeButton
           disabled={!canNextPage}
           onClick={nextPage}
         >
-          <Icon
-            icon="arrow-right2"
-            color={!canNextPage ? '#C4C4C4' : '#262626'}
-            size="16px"
-          />
+          <RightIcon/>
         </ChangeButton>
       </ChangeButtons>
     </Container>

@@ -6,9 +6,8 @@ import { useHistory } from 'react-router-dom';
 import {
   Button, ToolTip, OptionButton, Container
 } from './style';
-import Icon from '../../Icon';
 import { ClickOutside } from '../../../hooks/click-outside';
-import { useShowModal, useZoomCall } from '../../../hooks/modal';
+import { useShowModal } from '../../../hooks/modal';
 
 const caption = classNames(
   'button-medium',
@@ -26,7 +25,6 @@ export default ({
   const dispatch = useDispatch();
   const state = useSelector((globalState) => globalState);
   const modal = useShowModal();
-  const zoom = useZoomCall();
   return (
     <Container>
       <Button
@@ -36,7 +34,6 @@ export default ({
           setOpen((prevState) => !prevState);
         }}
       >
-        <Icon icon={!open ? 'menu3' : 'menu4'} />
       </Button>
       <ClickOutside
         outClickRef={refClick}
@@ -52,12 +49,10 @@ export default ({
                 history,
                 dispatch,
                 state,
-                ...zoom,
                 ...modal
               })}
               key={`${positionIndex + 1}`}
             >
-              <Icon icon={icon} size="16px" color="#7e8299" />
               <span className={caption}>{name}</span>
             </OptionButton>
           ))}
