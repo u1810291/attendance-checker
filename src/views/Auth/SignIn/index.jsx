@@ -1,11 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { login, verify } from '../../../redux/modules/auth/actions';
 import { useDispatch } from 'react-redux';
 
 export default ()=> {
-  const history = useHistory();
   const [name, setName] = useState('');
   const dispatch = useDispatch()
   const [password, setPassword] = useState('');
@@ -14,7 +12,7 @@ export default ()=> {
     dispatch(login({name, password}, (res)=>{
       if(res) {
         dispatch(verify(res.status))
-        return history.push('/verify')
+        return window.location.replace('/list')
       }
     }))
   }

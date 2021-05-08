@@ -18,6 +18,7 @@ function* login({ payload, success }) {
 
 function* verify({ payload }) {
   try {
+    console.log(payload)
     yield put(setToken(payload));
   } catch (error) {
     yield put(setError(error.response ? error.response.data.error_message : error));
