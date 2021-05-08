@@ -8,7 +8,7 @@ export const BodyContainer = styled.div`
   height: 100%;
   left: 67px;
   top: 98.06px;
-
+  background: #f4f7fc;
   &::-webkit-scrollbar {
     position: absolute;
     width: 8px;

@@ -8,8 +8,6 @@ export const ImageWrapper = styled.div`
 `;
 
 export const BellContainer = styled.div`
-  border-right: solid 1px #dddee3;
-  border-left: solid 1px #dddee3;
   margin: 10px;
 `;
 
@@ -21,12 +19,12 @@ export const UserData = styled.span`
   margin: 25px;
 `;
 export const Container = styled.div`
+  padding-top: 10px;
   background: white;
   display: flex;
   align-items: center;
   height: 100%;
   justify-content: space-between;
-  background: blue;
 `;
 
 export const UserInfoContainer = styled.div`

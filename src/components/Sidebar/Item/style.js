@@ -7,13 +7,13 @@ export const SubElements = styled.div`
 `;
 
 export const SubElement = styled.div`
-  color: white;
+  color: #3a76d8;
   height: 52px;
   display: flex;
   align-items: center;
   padding-left: 48px;
   cursor: pointer;
-  color: ${({ active }) => (active ? 'white' : '#A2A3B7')};
+  color: ${({ active }) => (active ? '#115bd4' : '#3a76d8')};
   background: ${({ active }) => (active ? 'var(--sidebar-item-active)' : 'white')};
 `;
 
@@ -33,7 +33,7 @@ export const Title = styled.span`
   display: inline-block;
   min-width: 100%;
   transition: 0.1s;
-  color: ${({ active, hovered }) => (active || hovered ? '#FFFFFF' : 'rgba(255, 255, 255, 0.78)')};
+  color: ${({ active, hovered }) => (active || hovered ? '#115bd4' : '#3a76d8')};
 `;
 
 export const IconContainer = styled.div`
@@ -41,7 +41,7 @@ export const IconContainer = styled.div`
   padding-left: 38px;
   padding-right: 14px;
   svg {
-    background: ${({ active }) => (active ? '#ffffff' : '')};
+    background: ${({ active }) => (active ? '#115bd4' : '#3a76d8')};
     border-radius: 6px;
   }
 `;
