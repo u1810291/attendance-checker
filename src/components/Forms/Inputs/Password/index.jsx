@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import {
   Container, Input, EyeIcon, Wrapper, Helper
 } from './style';
@@ -23,7 +22,6 @@ const NoramlInput = ({
     <Wrapper type={type}>
       <Container>
         <Input
-          className={classNames('body-medium', 'weight-light')}
           white={white}
           autoComplete="off"
           typePwd={typePwd}
