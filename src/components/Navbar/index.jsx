@@ -27,11 +27,12 @@ const Navbar = () => {
     switch (type) {
     case 'profile':
       setIsOpen(false);
-      history.push('/profile');
+      history.push('/list');
       break;
-    case 'logout':
-      setIsOpen(false);
-      dispatch(logout());
+      case 'logout':
+        setIsOpen(false);
+        history.push('/signin');
+        dispatch(logout());
       break;
     default:
       break;
@@ -40,7 +41,7 @@ const Navbar = () => {
   return (
     <Container>
         <BellContainer>
-          <Bell  margin="0 18px" value="" />
+          <Bell  margin="0 18px" value="1" />
         </BellContainer>
         <PopupContainer>
           <UserInfoContainer>
@@ -49,19 +50,19 @@ const Navbar = () => {
               ref={clickRef}
               onClick={() => setIsOpen((prevState) => !prevState)}
             >
+            <TextContainer>
+              <TextContainer.Name>First name</TextContainer.Name>
+              <TextContainer.Email>Some name</TextContainer.Email>
+            </TextContainer>
             </ImageWrapper>
               <DropdownContainer isOpen={isOpen}>
                 <Item onClick={() => handleOnClick('profile')}>
-                  <Text >Profile</Text>
+                  <Text >List</Text>
                 </Item>
                 <Item onClick={() => handleOnClick('logout')}>
                   <Text >Log out</Text>
                 </Item>
               </DropdownContainer>
-            <TextContainer>
-              <TextContainer.Name>First name</TextContainer.Name>
-              <TextContainer.Email>Some name</TextContainer.Email>
-            </TextContainer>
           </UserInfoContainer>
         </PopupContainer>
     </Container>

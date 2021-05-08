@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
 
   background: white;
-  margin: 10px;
-  height: 96%;
-  width: 98%;
+  margin: 0;
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
   display: grid;
   grid-gap: 20px;
