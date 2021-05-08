@@ -3,7 +3,6 @@ import React, {
   useEffect, useRef, useState, useCallback
 } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import {
   IconWrapper,
   InnerLabel,
@@ -161,14 +160,14 @@ const FilterSelect = ({
           ? selected[value].color : undefined}
       >
         {!multiple && placeholder && !selectedValue && (
-          <InnerLabel className={classNames('body-medium', 'weight-regular')}>{placeholder}</InnerLabel>
+          <InnerLabel >{placeholder}</InnerLabel>
         )}
         {multiple && placeholder && (
-          <InnerLabel className={classNames('body-medium', 'weight-regular')}>{placeholder}</InnerLabel>
+          <InnerLabel >{placeholder}</InnerLabel>
         )}
         <ItemWrapper selectedValue={selectedValue} multiple={multiple}>
           {selectedValue && (
-            <SelectedValue className={classNames('body-medium', 'weight-regular')}>
+            <SelectedValue >
               <ValueText>
                 {' '}
                 {selectedValue}
@@ -190,8 +189,7 @@ const FilterSelect = ({
               type="text"
               value={searchValue}
               onChange={handleSearch}
-              placeholder="Search..."
-              className={classNames('caption', 'weight-medium')}
+              placeholder="Search..."              
             />
             <IconWrapper>
               <SearchIcon />
@@ -206,7 +204,6 @@ const FilterSelect = ({
                 key={i}
                 onClick={() => handleClick(item)}
                 active={!!(item.value === value)}
-                className={classNames('body-medium-14', 'weight-regular')}
                 size={size}
               >
                 {multiple && <Checkbox type="checkbox" readOnly checked={!!selected[item.value]} />}
@@ -224,7 +221,7 @@ const FilterSelect = ({
               </OptionsItem>
             ))
           ) : (
-            <NoOptionsText className={classNames('body-medium', 'weight-regular')}>
+            <NoOptionsText >
               There are no options
             </NoOptionsText>
           )}

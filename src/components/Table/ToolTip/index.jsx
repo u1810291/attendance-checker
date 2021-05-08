@@ -1,6 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useRef, useState } from 'react';
-import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {
@@ -9,12 +8,6 @@ import {
 import { ClickOutside } from '../../../hooks/click-outside';
 import { useShowModal } from '../../../hooks/modal';
 
-const caption = classNames(
-  'button-medium',
-  'weight-medium',
-  'text-black-800',
-  'ml-2'
-);
 
 export default ({
   index, indexT, setIndexT, data, itemId, row
@@ -53,7 +46,7 @@ export default ({
               })}
               key={`${positionIndex + 1}`}
             >
-              <span className={caption}>{name}</span>
+              <span>{name}</span>
             </OptionButton>
           ))}
         </ToolTip>
