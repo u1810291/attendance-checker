@@ -3,16 +3,13 @@ import styled from 'styled-components';
 export const Container = styled.div`
 
   background: white;
-  padding: 30px;
-  margin: 20px;
-  margin-right: 200px;
-  border-radius: 42px;
+  margin: 10px;
   height: 96%;
-  width: 97%;
+  width: 80vw;
   overflow-y: auto;
   display: grid;
   grid-gap: 20px;
-  grid-template-rows: var(--navbar-height) 1fr;
+  grid-template-rows: 20px 1fr;
 `;
 
 export const Content = styled.div`
