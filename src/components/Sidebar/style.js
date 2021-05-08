@@ -14,7 +14,6 @@ export const BodyContainer = styled.div`
     width: 8px;
     display: none;
   }
-
   &::-webkit-scrollbar-track {
     background: rgba(47, 47, 81, 0);
     border-radius: 8px;

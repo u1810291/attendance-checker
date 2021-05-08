@@ -12,7 +12,7 @@ const SidebarHeader = () => {
   const tabletDesktop = (
     <Header>
       <TitleContainer>
-        <img src={Logo} className="pointer" onClick={() => { history.push('/profile'); }} />
+        <img src={Logo} className="pointer" onClick={() => { history.push('/list'); }} />
       </TitleContainer>
     </Header>
   );
