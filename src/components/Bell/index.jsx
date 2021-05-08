@@ -12,7 +12,6 @@ const BellComponent = ({ Component, margin, value }) => (
 );
 
 BellComponent.propTypes = {
-  Component: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]).isRequired,
   margin: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
 };

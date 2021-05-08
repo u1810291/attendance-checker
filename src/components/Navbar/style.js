@@ -24,6 +24,7 @@ export const Container = styled.div`
   background: white;
   display: flex;
   align-items: center;
+  height: 50px;
   justify-content: space-between;
   padding: 0 10px;
 `;

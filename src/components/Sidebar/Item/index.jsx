@@ -6,7 +6,7 @@ import {
 } from './style';
 
 const Item = ({
-  title, path, icon, collapsed, elements
+  title, path, icon, elements
 }) => {
   const [hovered, setHovered] = useState(false);
   const isActive = (checkPath) => window.location.pathname.includes(checkPath);
@@ -18,17 +18,16 @@ const Item = ({
         onMouseLeave={() => setHovered(false)}
         onClick={() => history.push(path)}
       >
-        <IconContainer collapsed={collapsed} active={isActive(path)}>
+        <IconContainer  active={isActive(path)}>
         </IconContainer>
         <Title
           active={isActive(path)}
           hovered={hovered}
-          collapsed={collapsed}
         >
           {title}
         </Title>
       </Container>
-      <SubElements expand={!collapsed && isActive(path)}>
+      <SubElements expand={isActive(path)}>
         {elements.map(
           (child, index) => !child.hidden && (
             <SubElement
@@ -47,9 +46,7 @@ const Item = ({
 
 Item.propTypes = {
   title: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
-  collapsed: PropTypes.bool.isRequired
 };
 
 export default Item;

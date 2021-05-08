@@ -1,5 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import {
   Header,
@@ -12,16 +12,12 @@ const SidebarHeader = () => {
   const tabletDesktop = (
     <Header>
       <TitleContainer>
-        <Logo className="pointer" onClick={() => { history.push('/profile'); }} />
+        <img src={Logo} className="pointer" onClick={() => { history.push('/profile'); }} />
       </TitleContainer>
     </Header>
   );
   return tabletDesktop
 };
 
-SidebarHeader.propTypes = {
-  handleExpand: PropTypes.func.isRequired,
-  handleCollapse: PropTypes.func.isRequired
-};
 
 export default SidebarHeader;

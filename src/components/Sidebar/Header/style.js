@@ -5,7 +5,7 @@ export const Header = styled.div`
     grid-area: header;
     display: grid;
     place-items: center;
-    height: var(--navbar-height);
+    height: 80px;
     box-sizing: border-box;
     padding: 20px;
 `;
