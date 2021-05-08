@@ -1,20 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { Container, Bell } from './style';
 
 const BellComponent = ({ Component, margin, value }) => (
   <Container margin={margin}>
     {Component}
-    <Bell className={
-      classNames(
-        'helper',
-        'text-white-900',
-        'weight-regular',
-        'primary-400'
-      )
-    }
-    >
+    <Bell >
       {value}
     </Bell>
   </Container>

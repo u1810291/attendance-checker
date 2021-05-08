@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import classNames from 'classnames';
 import {
   Container, Title, IconContainer, SubElements, SubElement
 } from './style';
@@ -12,9 +11,6 @@ const Item = ({
   const [hovered, setHovered] = useState(false);
   const isActive = (checkPath) => window.location.pathname.includes(checkPath);
   const history = useHistory();
-
-  const textClassName = classNames('text-black-800', 'body-large', 'weight-regular');
-
   return (
     <>
       <Container
@@ -28,7 +24,6 @@ const Item = ({
           active={isActive(path)}
           hovered={hovered}
           collapsed={collapsed}
-          className={textClassName}
         >
           {title}
         </Title>
@@ -41,7 +36,7 @@ const Item = ({
               active={isActive(child.path)}
               onClick={() => history.push(`${path}${child.path}`)}
             >
-              <Title className={textClassName}>{`- ${child.title}`}</Title>
+              <Title >{`- ${child.title}`}</Title>
             </SubElement>
           )
         )}

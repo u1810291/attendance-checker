@@ -1,8 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useRef, useState } from 'react';
 
-import classNames from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {
   Container,
@@ -11,24 +10,19 @@ import {
   DropdownContainer,
   Item,
   Text,
-  Header,
   BellContainer,
   TextContainer,
   ImageWrapper
 } from './style';
-import { Content } from '../style';
 import Bell from '../Bell';
-import { logout } from '../../../redux/modules/auth/actions';
-import { ClickOutside } from '../../../hooks/click-outside';
-import Icon from '../../Icon';
-import SearchableInput from '../../Forms/Inputs/Search';
+import { logout } from '../../redux/modules/auth/actions';
 
 const Navbar = () => {
   const clickRef = useRef(null);
   const dispatch = useDispatch();
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
-  const { userInfo } = useSelector((state) => state.userReducer);
+  
   const handleOnClick = (type) => {
     switch (type) {
     case 'profile':
@@ -45,12 +39,8 @@ const Navbar = () => {
   };
   return (
     <Container>
-      <Header>
-        <SearchableInput placeholder="Search here..." size="small" />
-      </Header>
-      <Content>
         <BellContainer>
-          <Bell Component={<Icon icon="notification_on" />} margin="0 18px" value="1" />
+          <Bell  margin="0 18px" value="1" />
         </BellContainer>
         <PopupContainer>
           <UserInfoContainer>
@@ -60,29 +50,20 @@ const Navbar = () => {
               onClick={() => setIsOpen((prevState) => !prevState)}
             >
             </ImageWrapper>
-            <ClickOutside
-              outClickRef={clickRef}
-              outsideClicked={() => {
-                setIsOpen(false);
-              }}
-            >
               <DropdownContainer isOpen={isOpen}>
                 <Item onClick={() => handleOnClick('profile')}>
-                  <Text className={classNames('caption', 'weight-semibold', 'text-black-800')}>Profile</Text>
+                  <Text >Profile</Text>
                 </Item>
                 <Item onClick={() => handleOnClick('logout')}>
-                  <Text className={classNames('caption', 'weight-semibold', 'text-black-800')}>Log out</Text>
+                  <Text >Log out</Text>
                 </Item>
               </DropdownContainer>
-            </ClickOutside>
             <TextContainer>
-              <TextContainer.Name>{userInfo.username}</TextContainer.Name>
-              <TextContainer.Email>{userInfo.email}</TextContainer.Email>
+              <TextContainer.Name>First name</TextContainer.Name>
+              <TextContainer.Email>Some name</TextContainer.Email>
             </TextContainer>
           </UserInfoContainer>
-
         </PopupContainer>
-      </Content>
     </Container>
   );
 };
