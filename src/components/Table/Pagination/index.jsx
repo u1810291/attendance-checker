@@ -8,7 +8,6 @@ import {
   ChangeButton
 } from './style';
 import Dropdown from '../../Forms/DropdownV3';
-import Icon from '../../Icon';
 import { useButtons } from './useButtons';
 
 const options = [
