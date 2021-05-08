@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { device } from '../../utils/responsive';
 
 export const BodyContainer = styled.div`
   overflow-y: auto;
@@ -33,10 +32,5 @@ export const BodyContainer = styled.div`
   }
   &::-webkit-scrollbar-thumb:hover {
     background: rgba(73, 75, 116, 1);
-  }
-  @media ${device.mobile} {
-    &::-webkit-scrollbar {
-      display: none;
-    }
   }
 `;

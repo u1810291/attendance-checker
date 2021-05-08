@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import {
   Container, Title, IconContainer, SubElements, SubElement
 } from './style';
-import Icon from '../../Icon';
 
 const Item = ({
   title, path, icon, collapsed, elements
@@ -24,7 +23,6 @@ const Item = ({
         onClick={() => history.push(path)}
       >
         <IconContainer collapsed={collapsed} active={isActive(path)}>
-          <Icon icon={icon} size="1.5em" />
         </IconContainer>
         <Title
           active={isActive(path)}

@@ -1,18 +1,12 @@
-/* eslint-disable no-nested-ternary */
+/* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-
 import {
   Container, Space, Text
 } from './style';
 import Item from '../Item';
-import studentChildRoutes from '../../../routes/sidebar-routes';
-import adminChildRoutes from '../../../routes/admin-routes';
-import teacherChildRoutes from '../../../routes/teacher-routes';
-import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../../constants/roles';
+import childRoutes from '../../../routes/main-routes';
 
-const SidebarBody = ({ collapsed, childRoutes }) => (
+export default () => (
   <Container>
     <Space>
       <Text>Menu</Text>
@@ -27,25 +21,10 @@ const SidebarBody = ({ collapsed, childRoutes }) => (
             title={title}
             icon={icon}
             path={path}
-            collapsed={collapsed}
+            
             elements={children}
           />
         ) : null)
       ) : ''}
   </Container>
 );
-SidebarBody.propTypes = {
-  collapsed: PropTypes.bool
-};
-
-SidebarBody.defaultProps = {
-  collapsed: false
-};
-export default ({ collapsed }) => {
-  const { userInfo } = useSelector((state) => state.userReducer);
-  const childRoutes = userInfo.role === FIVEPLUSADMIN
-    ? adminChildRoutes : userInfo.role === STUDENT
-      ? studentChildRoutes : userInfo.role === TEACHER
-        ? teacherChildRoutes : null;
-  return <SidebarBody collapsed={collapsed} childRoutes={childRoutes} />;
-};
