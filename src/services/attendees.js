@@ -2,6 +2,6 @@
 import axios from 'axios';
 
 export default {
-  getAll: () => axios.post('api/v1/faces/search'),
+  getAll: (data) => axios.post('api/v1/faces/search', data),
   getMe: () => axios.get('api/v1/users/me')
 }

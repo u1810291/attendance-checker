@@ -7,9 +7,18 @@ import { fetchData } from '../../../redux/modules/attendees/actions'
 
 export default ()=> {
   const dispatch = useDispatch();
-  const { data } = useSelector(state => state.attendeesReducer)
+  const { data } = useSelector(state => state.attendeesReducer);
+  
+  const requestData = {
+    facelist: { ids: [] },
+    limit: 20,
+    offset: 0,
+    sort: "DESC",
+    sort_field: "id"
+  }
+  console.log(requestData)
   useEffect(()=>{
-    dispatch(fetchData())
+    dispatch(fetchData(requestData))
   },[])
   console.log(data)
   return (
