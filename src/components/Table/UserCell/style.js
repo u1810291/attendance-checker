@@ -18,7 +18,9 @@ export const Image = styled.img`
 `
 
 export const Quality = styled.div`
+  display:flex;
+  justify-content: center;
   border: solid 1px black;
   margin-top: 5px;
-  background: 
+  background: #55f065;
 `

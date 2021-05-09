@@ -77,6 +77,7 @@ export const TR = styled.tr`
 `;
 
 export const TBody = styled.tbody`
+tr:nth-child(even){background-color: #cfdff9;}
 `;
 
 export const TD = styled.td`
