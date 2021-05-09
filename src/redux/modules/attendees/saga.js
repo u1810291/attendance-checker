@@ -26,6 +26,21 @@ function* fetchData({ payload }) {
   }
 }
 
+function* getMatchedFaces({ payload }) {
+  try {
+    yield put(setLoading(true));
+    const res = yield service.getAll(payload);
+    const { total, data } = dataSelector(res.data);
+    yield put(setError(''));
+    yield put(setData(data));
+    yield put(setTotal(total));
+    yield put(setLoading(false));
+  } catch (error) {
+    yield put(setError(error.response ? error.response.data.error_message : error));
+  }
+}
+
 export default function* attendeesSaga() {
   yield takeLatest(types.TABLE_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_MATCHED_FACES_DATA, getMatchedFaces);
 }
