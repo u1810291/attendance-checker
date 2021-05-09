@@ -1,16 +1,30 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Table from '../../../components/Table';
 import { headerMaker } from '../../../components/Table/helper';
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchData } from '../../../redux/modules/attendees/actions'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData } from '../../../redux/modules/attendees/actions';
+import { attendeesHeader } from '../../../redux/modules/table/common';
 
 export default ()=> {
   const dispatch = useDispatch();
+  const [sort, setSort] = useState();
   const { data, loading, error } = useSelector(state => state.attendeesReducer);
-  const header = useSelector(({tableReducer}) => tableReducer.attendeesHeader)
+  const header = useSelector(({ tableReducer }) => tableReducer.attendeesHeader)
   const headers = useMemo(() => headerMaker(header), [header])
+  const [pageIndex, setPageIndex] = useState(0);
+  const [pageSize, setPageSize] = useState(0);
+  const sortQuery = useMemo(() => {
+    const found = sort && attendeesHeader.find(({ id }) => id === sort.id);
+    return found
+      ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
+      : '';
+  }, [sort]);
+  const query = useMemo(
+    () => `&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
+    [pageIndex, pageSize, sortQuery]
+  );
   const requestData = {
     facelist: { ids: [] },
     limit: 20,
@@ -21,9 +35,23 @@ export default ()=> {
   useEffect(()=>{
     dispatch(fetchData(requestData))
   },[])
+  const handleOnChange = ({ pageIndex, pageSize }) => {
+    setPageIndex(pageIndex);
+    setPageSize(pageSize);
+  };
+
   return (
     <div>
-      <Table data={data} loading={loading} error={error} header={headers} />
+      <Table 
+        data={data}
+        sort={sort}
+        query={query}
+        loading={loading} 
+        error={error} 
+        header={headers}
+        setSort={setSort}
+        onChange={handleOnChange}
+      />
     </div>
   )
 }

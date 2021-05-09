@@ -30,7 +30,8 @@ export const attendeesHeader = [{
   disableSortBy: true,
   show: true,
   Header: 'images count',
-  accessor: 'images'
+  accessor: 'images',
+  type:'user'
 },
 {
   id: 5,

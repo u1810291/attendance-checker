@@ -8,7 +8,6 @@ import Verify from '../../views/Auth/Verify'
 
 export default ()=> {
   const token = sessionStorage.getItem('token')
-  console.log(token)
   const publicRoutes = (
     <Container>
       <Switch>
