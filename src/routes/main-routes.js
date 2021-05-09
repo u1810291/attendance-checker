@@ -8,7 +8,7 @@ export default [
     path: '/fullList',
     component: FullList,
     icon: 'dashboard',
-    title: 'Profile',
+    title: 'Умумий рўйхат',
     children: []
   },
   {
@@ -16,7 +16,7 @@ export default [
     path: '/list',
     component: List,
     icon: 'dashboard',
-    title: 'Profile',
+    title: 'Рўйхат',
     children: []
   }
 ];
