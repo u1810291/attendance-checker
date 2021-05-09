@@ -30,7 +30,6 @@ function* fetchData({ payload }) {
 function* getMatchedFaces({ payload }) {
   try {
     const res = yield service.getEvents(payload);
-    console.log(res)
     const { data } = faceSelector(res.data);
     yield put(setError(''));
     yield put(setFaceData(data));

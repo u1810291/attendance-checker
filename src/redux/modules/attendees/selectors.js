@@ -14,6 +14,15 @@ export function dataSelector(data){
   return { data: filtered }
 }
 export function faceSelector(data){
+  const matched = [...new Set(data.map((el)=>el.face_identities[0].faces[0].id))];
+  const filter = matched.map((el)=>({...(data.filter((item)=>item.face_identities[0].faces[0].id === el))}));
+  console.log(filter);
+  // const maxTime = filter.map((el, id)=>({[el]:(Math.max.apply(null, filter[id][el].map((item)=>item.start_time)))}))
+  for(let i = 0; i < filter.length; i++){
+    console.log(filter[i]);
+  }
+  // console.log(data.filter((el)=>Math.max.apply(null, data.map((item)=>item.start_time)) === el.start_time));
+  // console.log(Math.min.apply(null, data.map((item)=>item.start_time)));
   const filtered = data.map((el)=>({
     channel_address:el.channel_address,
     channel_id: el.channel_id,

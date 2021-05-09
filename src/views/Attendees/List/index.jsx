@@ -42,8 +42,8 @@ export default ()=> {
     face:{
       face_ids:[]
     }, 
-    since: "2021-04-28T21:00:00.000Z", 
-    until: "2021-05-06T20:59:59.000Z", 
+    since: "2021-05-06T00:00:00.000Z", 
+    until: "2021-05-06T23:59:59.000Z", 
     topics_by_modules:{
       "Kpx.Synesis.Faces":["FaceMatched"],
       "Kpx.Synesis.Hikvision":["FaceMatched"]
@@ -53,7 +53,6 @@ export default ()=> {
     dispatch(fetchData(requestData));
     dispatch(getMatchedFaces(faceParams));
   },[]);
-  console.log(faces)
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
