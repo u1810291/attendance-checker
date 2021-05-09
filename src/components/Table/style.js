@@ -69,7 +69,9 @@ export const Container = styled.div`
 export const THead = styled.thead`
   background: none;
   tr{
-    background: transparent !important;
+    td{
+      background: #78a4ed !important;
+    }
   }
 `;
 

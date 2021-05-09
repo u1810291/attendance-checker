@@ -1,12 +1,14 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
-import { Container, Content } from './style';
+import { Container, Content, Image, Quality } from './style';
 
 
-const UserCell = ({ name, role, image }) => (
+const UserCell = (props) => (
   <Container>
     <Content>
-      <span >{name}</span>
-      <span >{role}</span>
+      <Image src={props.image_thumbnail} alt="image"/>
+      {console.log(props)}
+      <Quality >{props.quality}</Quality>
     </Content>
   </Container>
 );

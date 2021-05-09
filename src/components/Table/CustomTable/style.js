@@ -61,7 +61,7 @@ export const THead = styled.thead`
   position: sticky;
   background: none;
   tr{
-    background: transparent !important;
+    background: #78a4ed !important;
   }
 `;
 
