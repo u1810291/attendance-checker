@@ -41,7 +41,7 @@ const Navbar = () => {
   return (
     <Container>
         <BellContainer>
-          <Bell  margin="0 18px" value="1" />
+          <Bell  margin="0 18px" value="" />
         </BellContainer>
         <PopupContainer>
           <UserInfoContainer>
