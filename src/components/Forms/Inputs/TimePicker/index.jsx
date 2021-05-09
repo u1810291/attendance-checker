@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';

@@ -33,7 +33,7 @@ export const attendeesHeader = [{
   accessor: 'images'
 },
 {
-  id: 4,
+  id: 5,
   align: 'end',
   disableSortBy: true,
   show: true,
@@ -41,7 +41,7 @@ export const attendeesHeader = [{
   accessor: 'last_name'
 },
 {
-  id: 4,
+  id: 6,
   align: 'end',
   disableSortBy: true,
   show: true,

@@ -18,11 +18,9 @@ export default ()=> {
     sort: "DESC",
     sort_field: "id"
   }
-  console.log(loading, error)
   useEffect(()=>{
     dispatch(fetchData(requestData))
   },[])
-  console.log(data)
   return (
     <div>
       <Table data={data} loading={loading} error={error} header={headers} />

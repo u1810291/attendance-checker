@@ -15,16 +15,13 @@ import { dataSelector } from './selectors';
 function* fetchData({ payload }) {
   yield put(setLoading(true));
   try {
-    console.log(payload)
     const res = yield service.getAll(payload);
-    console.log(res)
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    console.log(error)
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }

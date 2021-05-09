@@ -6,7 +6,8 @@ const service = axios;
 service.interceptors.response.use(
   (res) => res,
   (error) => {
-    window.location.replace('/logout');
+    sessionStorage.setItem('token', '');
+    window.location.replace('/signin');
     return Promise.reject(error);
   }
 );

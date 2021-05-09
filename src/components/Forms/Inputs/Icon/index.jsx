@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 import {
   Container, Input, Label, Helper, IconWrapper
 } from './style';
-import Icon from '../../../Icon';
 
 const NormalInput = ({
   placeholder, disabled, size, helperText, label, type, icon, ...others
 }) => (
   <Container>
     <IconWrapper size={size}>
-      <Icon icon={icon} />
     </IconWrapper>
     <Input
       type={type}

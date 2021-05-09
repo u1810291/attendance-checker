@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import types from '../../../constants/action-types';
 import * as initial from './common';
 

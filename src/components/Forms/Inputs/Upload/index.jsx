@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef } from 'react';
-import Icon from '../../../Icon';
 import { Container, FileInputCustom, InputEement } from './style';
 
 const FileInput = ({ setFieldValue, ...props }) => {
@@ -14,7 +13,6 @@ const FileInput = ({ setFieldValue, ...props }) => {
   return (
     <Container {...props}>
       <FileInputCustom {...props} type="button" onClick={handleClick}>
-        <Icon icon="clip" />
       </FileInputCustom>
       <InputEement {...props} type="file" ref={ref} onChange={handleChange} />
     </Container>
