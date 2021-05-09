@@ -7,10 +7,11 @@ import {
   setData,
   setError,
   setLoading,
-  setTotal
+  setTotal,
+  setFaceData
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, faceSelector } from './selectors';
 
 function* fetchData({ payload }) {
   try {
@@ -28,13 +29,11 @@ function* fetchData({ payload }) {
 
 function* getMatchedFaces({ payload }) {
   try {
-    yield put(setLoading(true));
-    const res = yield service.getAll(payload);
-    const { total, data } = dataSelector(res.data);
+    const res = yield service.getEvents(payload);
+    console.log(res)
+    const { data } = faceSelector(res.data);
     yield put(setError(''));
-    yield put(setData(data));
-    yield put(setTotal(total));
-    yield put(setLoading(false));
+    yield put(setFaceData(data));
   } catch (error) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }

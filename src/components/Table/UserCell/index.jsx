@@ -7,7 +7,6 @@ const UserCell = (props) => (
   <Container>
     <Content>
       <Image src={props.image_thumbnail} alt="image"/>
-      {console.log(props)}
       <Quality>{Math.ceil(props.quality * 100)}%</Quality>
     </Content>
   </Container>

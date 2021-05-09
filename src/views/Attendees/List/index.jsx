@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Table from '../../../components/Table';
 import { headerMaker } from '../../../components/Table/helper';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchData } from '../../../redux/modules/attendees/actions';
+import { fetchData, getMatchedFaces } from '../../../redux/modules/attendees/actions';
 import { attendeesHeader } from '../../../redux/modules/table/common';
 
 export default ()=> {
@@ -36,8 +36,22 @@ export default ()=> {
     sort_field: "id"
   }
   
+  const faceParams = {
+    order:"DESC", 
+    limit: 100, 
+    face:{
+      face_ids:[]
+    }, 
+    since: "2021-04-28T21:00:00.000Z", 
+    until: "2021-05-06T20:59:59.000Z", 
+    topics_by_modules:{
+      "Kpx.Synesis.Faces":["FaceMatched"],
+      "Kpx.Synesis.Hikvision":["FaceMatched"]
+    }
+  }
   useEffect(()=>{
     dispatch(fetchData(requestData));
+    dispatch(getMatchedFaces(faceParams));
   },[]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {

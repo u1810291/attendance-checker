@@ -2,6 +2,7 @@ import types from '../../../constants/action-types';
 
 export const setLoading = (payload) => ({ type: types.TABLE_SET_LOADING, payload });
 export const setData = (payload) => ({ type: types.TABLE_SET_DATA, payload });
+export const setFaceData = (payload) => ({ type: types.TABLE_SET_FACE_DATA, payload });
 export const setTotal = (payload) => ({ type: types.TABLE_SET_TOTAL, payload });
 export const setError = (payload) => ({ type: types.TABLE_ERROR, payload });
 
