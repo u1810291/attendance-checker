@@ -16,15 +16,18 @@ export default ()=> {
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
   const sortQuery = useMemo(() => {
-    const found = sort && attendeesHeader.find(({ id }) => id === sort.id);
+  
+  const found = sort && attendeesHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';
   }, [sort]);
+  
   const query = useMemo(
     () => `&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
     [pageIndex, pageSize, sortQuery]
   );
+  
   const requestData = {
     facelist: { ids: [] },
     limit: 20,
@@ -32,9 +35,11 @@ export default ()=> {
     sort: "DESC",
     sort_field: "id"
   }
+  
   useEffect(()=>{
-    dispatch(fetchData(requestData))
-  },[])
+    dispatch(fetchData(requestData));
+  },[]);
+
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);

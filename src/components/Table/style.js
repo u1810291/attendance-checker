@@ -45,7 +45,6 @@ export const Container = styled.div`
   table {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 15px;
     tr {
       border-radius: 11px !important;
       border: solid 1px #000;
