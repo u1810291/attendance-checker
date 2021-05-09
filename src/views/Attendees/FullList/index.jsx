@@ -5,19 +5,18 @@ import Table from '../../../components/Table';
 import { headerMaker } from '../../../components/Table/helper';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../../../redux/modules/attendees/actions';
-import { attendeesHeader } from '../../../redux/modules/table/common';
+import { fullListHeader } from '../../../redux/modules/table/common';
 
 export default ()=> {
   const dispatch = useDispatch();
   const [sort, setSort] = useState();
   const { data, loading, error } = useSelector(state => state.attendeesReducer);
-  const header = useSelector(({ tableReducer }) => tableReducer.attendeesHeader)
-  const headers = useMemo(() => headerMaker(header), [header])
+  const header = useSelector(({ tableReducer }) => tableReducer.fullListHeader);
+  const headers = useMemo(() => headerMaker(header), [header]);
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
   const sortQuery = useMemo(() => {
-  
-  const found = sort && attendeesHeader.find(({ id }) => id === sort.id);
+    const found = sort && fullListHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';
