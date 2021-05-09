@@ -5,7 +5,8 @@ const defaultState = {
   data: [],
   loading: false,
   total: 0,
-  error: ''
+  error: '',
+  faces:[]
 };
 
 const map = {
@@ -20,6 +21,10 @@ const map = {
   [types.TABLE_SET_TOTAL]: (state, { payload }) => ({
     ...state,
     total: payload
+  }),
+  [types.TABLE_SET_FACE_DATA]: (state, { payload }) => ({
+    ...state,
+    faces: payload
   }),
   [types.TABLE_ERROR]: (state, { payload }) => ({
     ...state,

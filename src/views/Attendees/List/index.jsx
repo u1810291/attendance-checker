@@ -10,7 +10,7 @@ import { attendeesHeader } from '../../../redux/modules/table/common';
 export default ()=> {
   const dispatch = useDispatch();
   const [sort, setSort] = useState();
-  const { data, loading, error } = useSelector(state => state.attendeesReducer);
+  const { data, loading, error, faces } = useSelector(state => state.attendeesReducer);
   const header = useSelector(({ tableReducer }) => tableReducer.attendeesHeader)
   const headers = useMemo(() => headerMaker(header), [header])
   const [pageIndex, setPageIndex] = useState(0);
@@ -53,6 +53,7 @@ export default ()=> {
     dispatch(fetchData(requestData));
     dispatch(getMatchedFaces(faceParams));
   },[]);
+  console.log(faces)
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
