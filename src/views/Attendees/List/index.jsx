@@ -43,7 +43,7 @@ export default ()=> {
       face_ids:[]
     }, 
     since: "2021-05-06T00:00:00.000Z", 
-    until: "2021-05-06T23:59:59.000Z", 
+    until: "2021-05-10T23:59:59.000Z", 
     topics_by_modules:{
       "Kpx.Synesis.Faces":["FaceMatched"],
       "Kpx.Synesis.Hikvision":["FaceMatched"]
