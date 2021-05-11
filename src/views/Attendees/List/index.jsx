@@ -15,9 +15,10 @@ export default ()=> {
   const headers = useMemo(() => headerMaker(header), [header])
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
+  // 2428 = in
+  // 2429 = out
   const sortQuery = useMemo(() => {
-  
-  const found = sort && attendeesHeader.find(({ id }) => id === sort.id);
+    const found = sort && attendeesHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';
@@ -41,9 +42,9 @@ export default ()=> {
     limit: 100, 
     face:{
       face_ids:[]
-    }, 
-    since: "2021-05-06T00:00:00.000Z", 
-    until: "2021-05-10T23:59:59.000Z", 
+    },
+    since: "2021-05-01T00:00:00.000Z", 
+    until: "2021-05-11T23:59:59.000Z", 
     topics_by_modules:{
       "Kpx.Synesis.Faces":["FaceMatched"],
       "Kpx.Synesis.Hikvision":["FaceMatched"]
@@ -62,6 +63,7 @@ export default ()=> {
   return (
     <div>
       <Table 
+        faces={faces}
         data={data}
         sort={sort}
         query={query}
