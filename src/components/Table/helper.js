@@ -2,6 +2,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import React from 'react';
 import UserCell from './UserCell';
+import UserCellV2 from './UserCellV2';
 
 export const headerMaker = (data) => data
   .filter(({ show }) => show)
@@ -15,7 +16,7 @@ export const headerMaker = (data) => data
     if (type === 'userV2') {
       return {
         ...rest,
-        Cell: ({ cell: { value } }) => <UserCell {...value} />
+        Cell: ({ cell: { value } }) => <UserCellV2 {...value} />
       };
     }
     return rest;

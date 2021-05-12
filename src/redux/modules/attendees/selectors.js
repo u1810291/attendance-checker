@@ -34,7 +34,6 @@ export function faceSelector(data){
   const timeConverter = (unix_timestamp) => {
     const time = parseInt(unix_timestamp);
     if (Number.isNaN(time)) return '-';
-    console.log(Number.isNaN(time))
     let date = new Date(time * 1000);
     let hours = date.getHours();
     let minutes = "0" + date.getMinutes();

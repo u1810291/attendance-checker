@@ -90,7 +90,7 @@ export const fullListHeader = [
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'Id',
+    Header: '№',
     accessor: 'id'
   },
   {
@@ -98,16 +98,16 @@ export const fullListHeader = [
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'images count',
+    Header: 'Фото сурат',
     accessor: 'images',
-    type:'user'
+    type:'userV2'
   },
   {
     id: 3,
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'first_name',
+    Header: 'Исми',
     accessor: 'first_name'
   },
   {
@@ -115,7 +115,7 @@ export const fullListHeader = [
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'avatar_image_id',
+    Header: 'Подразделение',
     accessor: 'avatar_image_id'
   },
   {
@@ -123,7 +123,7 @@ export const fullListHeader = [
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'last_name',
+    Header: 'Фамилияси',
     accessor: 'last_name'
   },
   {
@@ -131,7 +131,7 @@ export const fullListHeader = [
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'list_id',
+    Header: 'Гурухи',
     accessor: 'list_id'
   }
 ];
