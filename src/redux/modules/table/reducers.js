@@ -5,6 +5,7 @@ import * as initial from './common';
 const defaultState = {
   attendeesHeader: JSON.parse(localStorage.getItem('attendeesHeader')) || initial.attendeesHeader,
   fullListHeader: JSON.parse(localStorage.getItem('fullListHeader')) || initial.fullListHeader,
+  peopleHeader: JSON.parse(localStorage.getItem('peopleHeader')) || initial.peopleHeader,
 };
 const map = {};
 

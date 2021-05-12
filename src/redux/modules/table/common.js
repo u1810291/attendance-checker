@@ -47,7 +47,7 @@ export const attendeesHeader = [
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'Кол-во входовКириш сони (жами)',
+    Header: 'Кол-во входов Кириш сони (жами)',
     accessor: 'number_of_in'
   },
   {
@@ -137,11 +137,66 @@ export const fullListHeader = [
     accessor: 'list_id'
   }
 ];
+export const peopleHeader = [
+  {
+    id: 1,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: '№',
+    accessor: 'id'
+  },
+  {
+    id: 2,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Фото сурат',
+    accessor: 'images',
+    type:'userV2'
+  },
+  {
+    id: 3,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Исми',
+    accessor: 'first_name'
+  },
+  {
+    id: 4,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Подразделение',
+    accessor: 'avatar_image_id'
+  },
+  {
+    id: 5,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Фамилияси',
+    accessor: 'last_name'
+  },
+  {
+    id: 6,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Гурухи',
+    accessor: 'list_id'
+  }
+];
 
 export const genericTypes = [
   {
     key: types.ATTENDEES_HEADER,
     headerName: 'attendeesHeader'
+  },
+  {
+    key: types.PEOPLE_HEADER,
+    headerName: 'peopleHeader'
   },
   {
     key: types.FULL_LIST_HEADER,
