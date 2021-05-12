@@ -31,14 +31,6 @@ export default ()=> {
     [pageIndex, pageSize, sortQuery]
   );
   
-  const requestData = {
-    facelist: { ids: [] },
-    limit: 20,
-    offset: 0,
-    sort: "DESC",
-    sort_field: "id"
-  }
-  
   const faceParams = {
     order:"DESC", 
     limit: 100, 
@@ -46,14 +38,13 @@ export default ()=> {
       face_ids:[]
     },
     since: "2021-05-12T00:00:00.000Z", 
-    until: "2021-05-12T23:59:59.000Z", 
+    until: "2021-05-13T23:59:59.000Z", 
     topics_by_modules:{
       "Kpx.Synesis.Faces":["FaceMatched"],
       "Kpx.Synesis.Hikvision":["FaceMatched"]
     }
   }
   useEffect(()=>{
-    dispatch(fetchData(requestData));
     dispatch(getMatchedFaces(faceParams));
   },[]);
   const handleOnChange = ({ pageIndex, pageSize }) => {

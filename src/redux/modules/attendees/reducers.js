@@ -6,7 +6,8 @@ const defaultState = {
   loading: false,
   total: 0,
   error: '',
-  faces:[]
+  faces:[],
+  fullList:[]
 };
 
 const map = {
@@ -25,6 +26,10 @@ const map = {
   [types.TABLE_SET_FACE_DATA]: (state, { payload }) => ({
     ...state,
     faces: payload
+  }),
+  [types.TABLE_SET_FULL_LIST_DATA]: (state, { payload }) => ({
+    ...state,
+    fullList: payload
   }),
   [types.TABLE_ERROR]: (state, { payload }) => ({
     ...state,

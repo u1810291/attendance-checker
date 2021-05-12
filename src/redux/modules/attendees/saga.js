@@ -8,10 +8,11 @@ import {
   setError,
   setLoading,
   setTotal,
-  setFaceData
+  setFaceData,
+  setFullListData
 } from './actions';
 
-import { dataSelector, faceSelector } from './selectors';
+import { dataSelector, faceSelector, fullListSelector } from './selectors';
 
 function* fetchData({ payload }) {
   try {
@@ -37,8 +38,19 @@ function* getMatchedFaces({ payload }) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
+function* getFullListData({ payload }) {
+  try {
+    const res = yield service.getEvents(payload);
+    const { data } = fullListSelector(res.data);
+    yield put(setError(''));
+    yield put(setFullListData(data));
+  } catch (error) {
+    yield put(setError(error.response ? error.response.data.error_message : error));
+  }
+}
 
 export default function* attendeesSaga() {
   yield takeLatest(types.TABLE_FETCH_DATA, fetchData);
   yield takeLatest(types.TABLE_MATCHED_FACES_DATA, getMatchedFaces);
+  yield takeLatest(types.TABLE_FULL_LIST_DATA, getFullListData);
 }
