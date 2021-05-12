@@ -22,19 +22,17 @@ export function faceSelector(data){
   
   const channel2428IN = filter.map((el) => Object.entries(el).filter(([_, item])=>item.channel_id === 2428));
   const channel2429OUT = filter.map((el) => Object.entries(el).filter(([_, item])=>item.channel_id === 2429));
-  // const timings = filter.map((item, _) => Math.max.apply(null,Object.entries(item).map(([_, item])=> [item.end_time])));
-  // console.log(timings)
+
   const lastIn = channel2428IN.map((item, _) => Math.max.apply(null,item.map(([_, item])=> [item.end_time])));
+  const firstIn = channel2428IN.map((item, _) => Math.min.apply(null,item.map(([_, item])=> [item.end_time])));
   const lastOut = channel2429OUT.map((item, _) => Math.max.apply(null,item.map(([_, item])=> [item.end_time])));
   const filterByPeopleIn = channel2428IN.map((item, i)=>item.filter((el, j)=>el[1].end_time === lastIn[i]))
   const filterByPeopleOut = channel2429OUT.map((item, i)=>item.filter((el, j)=>el[1].end_time === lastOut[i]))
 
-  const filtered = [filterByPeopleIn, filterByPeopleOut];
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-
-  
+  console.log(new Date(firstIn[1]))
+  console.log(new Date(lastOut[1]))
+  console.log(new Date(lastOut[5]).getHours() - new Date(firstIn[5]).getHours())
+  const filtered = [filterByPeopleIn, filterByPeopleOut];  
   const lastFiltered = [...Array(filter.length)].map((_, i)=>({    
     id: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].id})).toString().split(',')[1],
     images: {
@@ -45,10 +43,10 @@ export function faceSelector(data){
     full_name: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return `${item.face_identities[0].faces[0].first_name} ${item.face_identities[0].faces[0].last_name}`})).toString().split(',')[1],
     in_time: moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
     out_time: moment(new Date(parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
-    number_of_in: getRandomInt(5),
-    number_of_out:getRandomInt(3),
-    time_at_work: 5,
-    time_out_work: 2,
+    number_of_in: channel2428IN[i].length,
+    number_of_out: channel2429OUT[i].length,
+    time_at_work:new Date(lastOut[i]).getHours() - new Date(firstIn[i]).getHours(),
+    time_out_work: new Date().getHours() - new Date(lastOut[i]).getHours(),
     current: parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) > parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) ? 
       true: false,
   }))
