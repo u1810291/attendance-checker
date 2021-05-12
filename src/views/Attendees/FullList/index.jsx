@@ -51,12 +51,12 @@ export default ()=> {
     setPageSize(pageSize);
   };
 
-  console.log(fullList);
+  console.log(data);
   return (
     <Container>
       <FullListHeader />
       <Table
-        data={data}
+        data={fullList}
         sort={sort}
         query={query}
         loading={loading}

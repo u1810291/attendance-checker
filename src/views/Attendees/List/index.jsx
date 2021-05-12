@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Table from '../../../components/Table';
 import { headerMaker } from '../../../components/Table/helper';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchData, getMatchedFaces } from '../../../redux/modules/attendees/actions';
+import { getMatchedFaces } from '../../../redux/modules/attendees/actions';
 import { attendeesHeader } from '../../../redux/modules/table/common';
 import { Container } from './style'
 import ListHeader from '../../../components/Headers/ListHeader';
@@ -12,7 +12,7 @@ import ListHeader from '../../../components/Headers/ListHeader';
 export default ()=> {
   const dispatch = useDispatch();
   const [sort, setSort] = useState();
-  const { data, loading, error, faces } = useSelector(state => state.attendeesReducer);
+  const { loading, error, faces } = useSelector(state => state.attendeesReducer);
   const header = useSelector(({ tableReducer }) => tableReducer.attendeesHeader)
   const headers = useMemo(() => headerMaker(header), [header])
   const [pageIndex, setPageIndex] = useState(0);
@@ -55,7 +55,6 @@ export default ()=> {
     <Container>
       <ListHeader/>
       <Table 
-        faces={data}
         data={faces}
         sort={sort}
         query={query}
