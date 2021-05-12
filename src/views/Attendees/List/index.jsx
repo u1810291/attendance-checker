@@ -6,6 +6,8 @@ import { headerMaker } from '../../../components/Table/helper';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData, getMatchedFaces } from '../../../redux/modules/attendees/actions';
 import { attendeesHeader } from '../../../redux/modules/table/common';
+import { Container } from './style'
+import ListHeader from '../../../components/Headers/ListHeader';
 
 export default ()=> {
   const dispatch = useDispatch();
@@ -59,7 +61,8 @@ export default ()=> {
     setPageSize(pageSize);
   };
   return (
-    <div>
+    <Container>
+      <ListHeader/>
       <Table 
         faces={data}
         data={faces}
@@ -71,6 +74,6 @@ export default ()=> {
         setSort={setSort}
         onChange={handleOnChange}
       />
-    </div>
+    </Container>
   )
 }

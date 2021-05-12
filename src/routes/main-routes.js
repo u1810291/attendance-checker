@@ -1,8 +1,17 @@
 /* eslint-disable import/no-anonymous-default-export */
 import FullList from '../views/Attendees/FullList';
 import List from '../views/Attendees/List';
+import PeopleList from '../views/Attendees/PeopleList';
 
 export default [
+  {
+    exact: true,
+    path: '/list',
+    component: List,
+    icon: 'dashboard',
+    title: 'Рўйхат',
+    children: []
+  },
   {
     exact: true,
     path: '/fullList',
@@ -13,10 +22,10 @@ export default [
   },
   {
     exact: true,
-    path: '/list',
-    component: List,
+    path: '/people',
+    component: PeopleList,
     icon: 'dashboard',
-    title: 'Рўйхат',
+    title: 'Ходимлар',
     children: []
   }
 ];
