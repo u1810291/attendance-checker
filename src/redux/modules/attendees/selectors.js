@@ -49,7 +49,8 @@ export function faceSelector(data){
     number_of_out:getRandomInt(3),
     time_at_work: 5,
     time_out_work: 2,
-    current: getRandomInt(2),
+    current: parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) > parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) ? 
+      true: false,
   }))
   return { data: lastFiltered, filtered }
 }

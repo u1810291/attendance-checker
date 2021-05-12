@@ -80,7 +80,9 @@ export const attendeesHeader = [
     disableSortBy: true,
     show: true,
     Header: 'На месте Хозирги вақтда',
-    accessor: 'current'
+    accessor: 'current',
+    type: 'current'
+
   }
 ];
 

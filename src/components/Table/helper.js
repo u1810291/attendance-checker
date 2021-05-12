@@ -2,6 +2,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import React from 'react';
 import UserCell from './UserCell';
+import Checked from './Checked';
 import UserCellV2 from './UserCellV2';
 
 export const headerMaker = (data) => data
@@ -17,6 +18,12 @@ export const headerMaker = (data) => data
       return {
         ...rest,
         Cell: ({ cell: { value } }) => <UserCellV2 {...value} />
+      };
+    }
+    if (type === 'current') {
+      return {
+        ...rest,
+        Cell: ({ cell: value  }) => <Checked {...value} />
       };
     }
     return rest;
