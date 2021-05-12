@@ -12,6 +12,7 @@ const tabletDesktop = css`
   grid-template-rows: 76px calc(100vh - 76px);
   grid-template-columns: 1fr;
   overflow: hidden;
+  box-shadow: 0.1px 0 5px -3px #888;
 `;
 
 export const DesktopSidebar = styled.div`

@@ -23,7 +23,7 @@ export const Container = styled.div`
   align-items: center;
   cursor: pointer;
   height: 52px;
-  background: ;
+  background: ${({hovered, active})=>(hovered || active) ? '#78a4ed' : 'white'} ;
 `;
 
 export const Title = styled.span`

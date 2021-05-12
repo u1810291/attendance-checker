@@ -14,11 +14,13 @@ const Item = ({
   return (
     <>
       <Container
-        onMouseOver={() => setHovered(true)}
+        hovered={hovered}
+        active={isActive(path)}
+        onMouseOver={() => {console.log('object'); setHovered(true)}}
         onMouseLeave={() => setHovered(false)}
         onClick={() => history.push(path)}
       >
-        <IconContainer  active={isActive(path)}>
+        <IconContainer active={isActive(path)}>
         </IconContainer>
         <Title
           active={isActive(path)}

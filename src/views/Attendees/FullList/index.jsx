@@ -6,6 +6,8 @@ import { headerMaker } from '../../../components/Table/helper';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../../../redux/modules/attendees/actions';
 import { fullListHeader } from '../../../redux/modules/table/common';
+import { Container } from './style'
+import FullListHeader from '../../../components/Headers/FullListHeader';
 
 export default ()=> {
   const dispatch = useDispatch();
@@ -45,7 +47,8 @@ export default ()=> {
   };
 
   return (
-    <div>
+    <Container>
+      <FullListHeader/>
       <Table 
         data={data}
         sort={sort}
@@ -56,6 +59,6 @@ export default ()=> {
         setSort={setSort}
         onChange={handleOnChange}
       />
-    </div>
+    </Container>
   )
 }
