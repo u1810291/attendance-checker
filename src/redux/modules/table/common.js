@@ -109,32 +109,72 @@ export const fullListHeader = [
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'Исми',
-    accessor: 'first_name'
+    Header: 'Ф.И.Ш (рақами)',
+    accessor: 'full_name'
   },
   {
     id: 4,
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'Подразделение',
-    accessor: 'avatar_image_id'
+    Header: 'Эрталбки Текширув',
+    accessor: 'morning_check'
   },
   {
     id: 5,
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'Фамилияси',
-    accessor: 'last_name'
+    Header: 'Умумий текширув 1',
+    accessor: 'check_1'
   },
   {
     id: 6,
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'Гурухи',
-    accessor: 'list_id'
+    Header: 'Умумий текширув 2',
+    accessor: 'check_2'
+  },
+  {
+    id: 7,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Умумий текширув 3',
+    accessor: 'check_3'
+  },
+  {
+    id: 8,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Умумий текширув 4',
+    accessor: 'check_4'
+  },
+  {
+    id: 9,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Текшируда бўлди (жами)',
+    accessor: 'total_attendees'
+  },
+  {
+    id: 10,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Текшируда бўлмади (жами)',
+    accessor: 'total_absence'
+  },
+  {
+    id: 11,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Канча вақт бўлмади',
+    accessor: 'absence_hours'
   }
 ];
 export const peopleHeader = [

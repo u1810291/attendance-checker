@@ -12,7 +12,7 @@ import FullListHeader from '../../../components/Headers/FullListHeader';
 export default ()=> {
   const dispatch = useDispatch();
   const [sort, setSort] = useState();
-  const { data, loading, error } = useSelector(state => state.attendeesReducer);
+  const { data, faces, loading, error } = useSelector(state => state.attendeesReducer);
   const header = useSelector(({ tableReducer }) => tableReducer.fullListHeader);
   const headers = useMemo(() => headerMaker(header), [header]);
   const [pageIndex, setPageIndex] = useState(0);
@@ -45,7 +45,7 @@ export default ()=> {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
-
+  console.log(faces)
   return (
     <Container>
       <FullListHeader/>
