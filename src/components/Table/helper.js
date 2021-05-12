@@ -9,6 +9,12 @@ export const headerMaker = (data) => data
     if (type === 'user') {
       return {
         ...rest,
+        Cell: ({ cell: value }) => <UserCell {...value} />
+      };
+    }
+    if (type === 'userV2') {
+      return {
+        ...rest,
         Cell: ({ cell: { value } }) => <UserCell {...value} />
       };
     }

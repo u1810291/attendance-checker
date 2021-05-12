@@ -54,17 +54,17 @@ export default ()=> {
     dispatch(fetchData(requestData));
     dispatch(getMatchedFaces(faceParams));
   },[]);
-
+  console.log(faces)
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
-
+  console.log(faces)
   return (
     <div>
       <Table 
-        faces={faces}
-        data={data}
+        faces={data}
+        data={faces}
         sort={sort}
         query={query}
         loading={loading} 

@@ -6,7 +6,7 @@ export const attendeesHeader = [
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'Id',
+    Header: '№',
     accessor: 'id'
   },
   {
@@ -14,7 +14,7 @@ export const attendeesHeader = [
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'images count',
+    Header: 'Фото сурат',
     accessor: 'images',
     type:'user'
   },
@@ -23,32 +23,64 @@ export const attendeesHeader = [
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'first_name',
-    accessor: 'first_name'
+    Header: 'Ф.И.Ш (унвони, лавозими)',
+    accessor: 'full_name'
   },
   {
     id: 4,
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'avatar_image_id',
-    accessor: 'avatar_image_id'
+    Header: 'Вход Кириш вақти',
+    accessor: 'in_time'
   },
   {
     id: 5,
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'last_name',
-    accessor: 'last_name'
+    Header: 'ВыходЧиқиш вақти',
+    accessor: 'out_time'
   },
   {
     id: 6,
     align: 'end',
     disableSortBy: true,
     show: true,
-    Header: 'list_id',
-    accessor: 'list_id'
+    Header: 'Кол-во входовКириш сони (жами)',
+    accessor: 'number_of_in'
+  },
+  {
+    id: 7,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Кол-во выходов Чиқиш сони (жами)',
+    accessor: 'number_of_out'
+  },
+  {
+    id: 8,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Время на работе Ишда бўлган вақти',
+    accessor: 'time_at_work'
+  },
+  {
+    id: 9,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'Время вне работы Ишдан ташқарида бўлганвақти',
+    accessor: 'time_out_work'
+  },
+  {
+    id: 10,
+    align: 'end',
+    disableSortBy: true,
+    show: true,
+    Header: 'На месте Хозирги вақтда',
+    accessor: 'current'
   }
 ];
 
