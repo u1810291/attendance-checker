@@ -45,8 +45,8 @@ export function faceSelector(data){
     out_time: moment(new Date(parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
     number_of_in: channel2428IN[i].length,
     number_of_out: channel2429OUT[i].length,
-    time_at_work:new Date(lastOut[i]).getHours() - new Date(firstIn[i]).getHours(),
-    time_out_work: new Date().getHours() - new Date(lastOut[i]).getHours(),
+    time_at_work: `0${(new Date(lastOut[i]).getHours() - new Date(firstIn[i]).getHours())}:${Math.abs(new Date(lastOut[i]).getMinutes() - new Date(firstIn[i]).getMinutes())}`,
+    time_out_work: `${new Date().getHours() - new Date(lastOut[i]).getHours()}:${Math.abs(new Date().getMinutes() - new Date(lastOut[i]).getMinutes())}`,
     current: parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) > parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) ? 
       true: false,
   }))
