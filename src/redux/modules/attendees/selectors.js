@@ -1,4 +1,6 @@
 /* eslint-disable array-callback-return */
+import moment from 'moment'
+
 export function dataSelector(data){
   const filtered = data.map((el)=>({
     avatar_image_id: el.avatar_image_id,
@@ -31,23 +33,17 @@ export function faceSelector(data){
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
-  const timeConverter = (unix_timestamp) => {
-    const time = parseInt(unix_timestamp);
-    if (Number.isNaN(time)) return '-';
-    let date = new Date(time * 1000);
-    let hours = date.getHours();
-    let minutes = "0" + date.getMinutes();
-    let seconds = "0" + date.getSeconds();
-    let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-    return formattedTime 
-  }
+
   
   const lastFiltered = [...Array(filter.length)].map((_, i)=>({    
     id: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].id})).toString().split(',')[1],
-    images: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.original_quality_snapshot})).toString().split(',')[1],
+    images: {
+      image_thumbnail: filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i === 1) return item.snapshots[1].path})).toString().split(',')[1], 
+      quality: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].similarity})).toString().split(',')[1],
+    },
     full_name: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return `${item.face_identities[0].faces[0].first_name} ${item.face_identities[0].faces[0].last_name}`})).toString().split(',')[1],
-    in_time: timeConverter(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]),
-    out_time: timeConverter(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]),
+    in_time: moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
+    out_time: moment(new Date(parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
     number_of_in: getRandomInt(5),
     number_of_out:getRandomInt(3),
     time_at_work: 5,
@@ -57,29 +53,3 @@ export function faceSelector(data){
   return { data: lastFiltered, filtered }
 }
 
-
-
-
-  // const filtered = data.map((el)=>({
-  //   channel_address:el.channel_address,
-  //   channel_id: el.channel_id,
-  //   channel_latitude: el.channel_latitude,
-  //   channel_longitude: el.channel_longitude,
-  //   channel_name: el.channel_name,
-  //   channel_type: el.channel_type,
-  //   end_time: el.end_time,
-  //   event_id: el.event_id,
-  //   face_identities: el.face_identities,
-  //   id: el.id,
-  //   level: el.level,
-  //   module: el.module,
-  //   original_quality_snapshot: el.original_quality_snapshot,
-  //   params: el.params,
-  //   plate_identities: el.plate_identities,
-  //   snapshots: el.snapshots,
-  //   source_name: el.source_name,
-  //   start_time: el.start_time,
-  //   stream_id: el.stream_id,
-  //   topic: el.topic,
-  //   video_sources: el.video_sources
-  // }))

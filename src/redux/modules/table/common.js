@@ -16,7 +16,7 @@ export const attendeesHeader = [
     show: true,
     Header: 'Фото сурат',
     accessor: 'images',
-    type:'user'
+    type:'userV2'
   },
   {
     id: 3,
