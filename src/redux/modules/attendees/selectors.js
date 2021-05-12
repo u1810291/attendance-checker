@@ -29,9 +29,6 @@ export function faceSelector(data){
   const filterByPeopleIn = channel2428IN.map((item, i)=>item.filter((el, j)=>el[1].end_time === lastIn[i]))
   const filterByPeopleOut = channel2429OUT.map((item, i)=>item.filter((el, j)=>el[1].end_time === lastOut[i]))
 
-  console.log(new Date(firstIn[1]))
-  console.log(new Date(lastOut[1]))
-  console.log(new Date(lastOut[5]).getHours() - new Date(firstIn[5]).getHours())
   const filtered = [filterByPeopleIn, filterByPeopleOut];  
   const lastFiltered = [...Array(filter.length)].map((_, i)=>({    
     id: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].id})).toString().split(',')[1],
