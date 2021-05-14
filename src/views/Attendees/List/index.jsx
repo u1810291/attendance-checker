@@ -5,7 +5,6 @@ import Table from '../../../components/Table';
 import { headerMaker } from '../../../components/Table/helper';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMatchedFaces } from '../../../redux/modules/attendees/actions';
-import { attendeesHeader } from '../../../redux/modules/table/common';
 import { Container } from './style'
 import ListHeader from '../../../components/Headers/ListHeader';
 
@@ -19,33 +18,31 @@ export default ()=> {
   const [pageSize, setPageSize] = useState(0);
   // 2428 = in
   // 2429 = out
-  const sortQuery = useMemo(() => {
-    const found = sort && attendeesHeader.find(({ id }) => id === sort.id);
-    return found
-      ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
-      : '';
-  }, [sort]);
-  
-  const query = useMemo(
-    () => `&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
-    [pageIndex, pageSize, sortQuery]
+  const [date, setDate] = useState(undefined)
+  const dateFilter = useMemo(
+    () => (date
+      ? `&since=${date.toISOString()}&until=${date && (new Date(date.setDate(date.getDate() + 1))).toISOString()}`
+      : ''),
+    [date]
   );
-  
-  const faceParams = {
-    order:"DESC", 
-    limit: 100, 
-    face:{
-      face_ids:[]
-    },
-    since: "2021-05-12T00:00:00.000Z", 
-    until: "2021-05-13T23:59:59.000Z", 
-    topics_by_modules:{
-      "Kpx.Synesis.Faces":["FaceMatched"],
-      "Kpx.Synesis.Hikvision":["FaceMatched"]
-    }
-  }
+
+  const query = useMemo(
+    () => ({
+      order:"DESC", 
+      limit: 100, 
+      face:{
+        face_ids:[]
+      },
+      dateFilter,
+      topics_by_modules:{
+        "Kpx.Synesis.Faces":["FaceMatched"],
+        "Kpx.Synesis.Hikvision":["FaceMatched"]
+      }
+    }),
+    [dateFilter]
+  );
   useEffect(()=>{
-    dispatch(getMatchedFaces(faceParams));
+    dispatch(getMatchedFaces(query));
   },[]);
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
@@ -53,8 +50,10 @@ export default ()=> {
   };
   return (
     <Container>
-      <ListHeader/>
+      <ListHeader date={date} setDate={setDate}/>
       <Table 
+        pageIndex={pageIndex}
+        pageSize={pageSize}
         data={faces}
         sort={sort}
         query={query}
