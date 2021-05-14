@@ -118,7 +118,8 @@ export const fullListHeader = [
     disableSortBy: true,
     show: true,
     Header: 'Эрталбки Текширув',
-    accessor: 'morning_check'
+    accessor: 'morning_check',
+    type:'checked'
   },
   {
     id: 5,
@@ -126,7 +127,8 @@ export const fullListHeader = [
     disableSortBy: true,
     show: true,
     Header: 'Умумий текширув 1',
-    accessor: 'check_1'
+    accessor: 'check_1',
+    type:'checked'
   },
   {
     id: 6,
@@ -134,7 +136,8 @@ export const fullListHeader = [
     disableSortBy: true,
     show: true,
     Header: 'Умумий текширув 2',
-    accessor: 'check_2'
+    accessor: 'check_2',
+    type:'checked'
   },
   {
     id: 7,
@@ -142,7 +145,8 @@ export const fullListHeader = [
     disableSortBy: true,
     show: true,
     Header: 'Умумий текширув 3',
-    accessor: 'check_3'
+    accessor: 'check_3',
+    type:'checked'
   },
   {
     id: 8,
@@ -150,7 +154,8 @@ export const fullListHeader = [
     disableSortBy: true,
     show: true,
     Header: 'Умумий текширув 4',
-    accessor: 'check_4'
+    accessor: 'check_4',
+    type:'checked'
   },
   {
     id: 9,
@@ -158,7 +163,8 @@ export const fullListHeader = [
     disableSortBy: true,
     show: true,
     Header: 'Текшируда бўлди (жами)',
-    accessor: 'total_attendees'
+    accessor: 'total_attendees',
+    type: 'total'
   },
   {
     id: 10,
@@ -166,7 +172,8 @@ export const fullListHeader = [
     disableSortBy: true,
     show: true,
     Header: 'Текшируда бўлмади (жами)',
-    accessor: 'total_absence'
+    accessor: 'total_absence',
+    type: 'total'
   },
   {
     id: 11,

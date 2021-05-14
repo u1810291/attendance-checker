@@ -55,11 +55,27 @@ export function fullListSelector(data){
   const matched = [...new Set(data.map((el)=>el.face_identities[0].faces[0].id))];
   const filter = matched.map((el)=>({...(data.filter((item)=>item.face_identities[0].faces[0].id === el ))}));
   
+  // 1620802500 - 1620803100,  6:55 - 7:05
+  // 1620813300 - 1620813900,  9:55 - 10:05
+  // 1620824100 - 1620824700,  12:55 - 13:05
+  // 1620834900 - 1620835500,  15:55 - 16:05
+  // 1620845700 - 1620846300   18:55 - 19:05
+
   const channel2428IN = filter.map((el) => Object.entries(el).filter(([_, item])=>item.channel_id === 2428));
   const channel2429OUT = filter.map((el) => Object.entries(el).filter(([_, item])=>item.channel_id === 2429));
-
+  const morning_check = channel2428IN.filter((item,_)=>item.map((_, el)=>el.end_time) > 1620802500 || item.map((_, el)=>el.end_time) < 1620803100)
+  const check_1 = channel2428IN.filter((item,_)=>item.map((_, el)=>el.end_time) > 1620813300 || item.map((_, el)=>el.end_time) < 1620813900) 
+  const check_2 = channel2428IN.filter((item,_)=>item.map((_, el)=>el.end_time) > 1620824100 || item.map((_, el)=>el.end_time) < 1620824700)
+  const check_3 = channel2428IN.filter((item,_)=>item.map((_, el)=>el.end_time) > 1620834900 || item.map((_, el)=>el.end_time) < 1620835500)
+  const check_4 = channel2428IN.filter((item,_)=>item.map((_, el)=>el.end_time) > 1620845700 || item.map((_, el)=>el.end_time) < 1620846300)
+  console.log(morning_check)
+  console.log(check_1)
+  console.log(check_2)
+  console.log(check_3)
+  console.log(check_4)
+  
   const lastIn = channel2428IN.map((item, _) => Math.max.apply(null,item.map(([_, item])=> [item.end_time])));
-  // const firstIn = channel2428IN.map((item, _) => Math.min.apply(null,item.map(([_, item])=> [item.end_time])));
+  
   const lastOut = channel2429OUT.map((item, _) => Math.max.apply(null,item.map(([_, item])=> [item.end_time])));
   const filterByPeopleIn = channel2428IN.map((item, i)=>item.filter((el, j)=>el[1].end_time === lastIn[i]))
   const filterByPeopleOut = channel2429OUT.map((item, i)=>item.filter((el, j)=>el[1].end_time === lastOut[i]))
@@ -72,22 +88,14 @@ export function fullListSelector(data){
       quality: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].similarity})).toString().split(',')[1],
     },
     full_name: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return `${item.face_identities[0].faces[0].first_name} ${item.face_identities[0].faces[0].last_name}`})).toString().split(',')[1],
-    morning_check: moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
-    check_1: parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) 
-      ? moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss") 
-      : moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
-    check_2: moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
-    check_3: moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
-    check_4: moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
-    total_attendees: moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
-    total_absence: moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
-    absence_hours: moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
+    morning_check: morning_check[i] ? true : false,
+    check_1: check_1[i] ? {check_1: check_1[i], value: true}:{check_1: check_1[i], value: false},
+    check_2: check_2[i] ? {check_2: check_2[i], value: true}:{check_2: check_2[i], value: false},
+    check_3: check_3[i] ? {check_3: check_4[i], value: true}:{check_3: check_3[i], value: false},
+    check_4: check_4[i] ? {check_4: check_4[i], value: true}:{check_4: check_4[i], value: false},
+    total_attendees: [morning_check[i], check_1[i], check_2[i], check_3[i], check_4[i]],
+    total_absence: [morning_check[i], check_1[i], check_2[i], check_3[i], check_4[i]],
+    absence_hours: morning_check[i],
   }))
   return { data: lastFiltered }
 }
-
-// 1620802500 - 1620803100,  6:55 - 7:05
-// 1620813300 - 1620813900,  9:55 - 10:05
-// 1620824100 - 1620824700,  12:55 - 13:05
-// 1620834900 - 1620835500,  15:55 - 16:05
-// 1620845700 - 1620846300   18:55 - 19:05

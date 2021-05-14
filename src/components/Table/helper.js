@@ -4,6 +4,7 @@ import React from 'react';
 import UserCell from './UserCell';
 import Checked from './Checked';
 import UserCellV2 from './UserCellV2';
+import Total from './Total';
 
 export const headerMaker = (data) => data
   .filter(({ show }) => show)
@@ -24,6 +25,12 @@ export const headerMaker = (data) => data
       return {
         ...rest,
         Cell: ({ cell: value  }) => <Checked {...value} />
+      };
+    }
+    if (type === 'total') {
+      return {
+        ...rest,
+        Cell: ({ cell: value  }) => <Total {...value} />
       };
     }
     return rest;

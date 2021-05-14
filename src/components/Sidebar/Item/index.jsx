@@ -16,7 +16,7 @@ const Item = ({
       <Container
         hovered={hovered}
         active={isActive(path)}
-        onMouseOver={() => {console.log('object'); setHovered(true)}}
+        onMouseOver={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onClick={() => history.push(path)}
       >
