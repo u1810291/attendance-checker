@@ -10,7 +10,7 @@ const Checked = (checked)=> (
       </Container>
       : <Container color="green">
           {console.log(Object.keys(checked.value).length)}
-        {checked.value.check}
+        {Object.keys(checked.value).length}
       </Container>
 )
 
