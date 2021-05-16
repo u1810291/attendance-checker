@@ -32,6 +32,7 @@ const Navbar = () => {
       case 'logout':
         setIsOpen(false);
         history.push('/signin');
+        window.location.reload()
         dispatch(logout());
       break;
     default:
@@ -51,16 +52,16 @@ const Navbar = () => {
               onClick={() => setIsOpen((prevState) => !prevState)}
             >
             <TextContainer>
-              <TextContainer.Name>First name</TextContainer.Name>
-              <TextContainer.Email>Some name</TextContainer.Email>
+              <TextContainer.Name>Меню</TextContainer.Name>
+              {/* <TextContainer.Email>Some name</TextContainer.Email> */}
             </TextContainer>
             </ImageWrapper>
               <DropdownContainer isOpen={isOpen}>
                 <Item onClick={() => handleOnClick('profile')}>
-                  <Text >List</Text>
+                  <Text >Асосий сахифа</Text>
                 </Item>
                 <Item onClick={() => handleOnClick('logout')}>
-                  <Text >Log out</Text>
+                  <Text >Чиқиш</Text>
                 </Item>
               </DropdownContainer>
           </UserInfoContainer>

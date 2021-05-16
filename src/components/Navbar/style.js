@@ -68,7 +68,8 @@ export const PopupContainer = styled.div`
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  margin-left: 125px;
+  margin-top: 15px;
   margin-right: 10px;
 `;
 TextContainer.Name = styled.span`
