@@ -119,7 +119,7 @@ export const fullListHeader = [
     show: true,
     Header: 'Эрталбки Текширув',
     accessor: 'morning_check',
-    type:'total'
+    type:'checks'
   },
   {
     id: 5,
@@ -128,7 +128,7 @@ export const fullListHeader = [
     show: true,
     Header: 'Умумий текширув 1',
     accessor: 'check_1',
-    type:'total'
+    type:'checks'
   },
   {
     id: 6,
@@ -137,7 +137,7 @@ export const fullListHeader = [
     show: true,
     Header: 'Умумий текширув 2',
     accessor: 'check_2',
-    type:'total'
+    type:'checks'
   },
   {
     id: 7,
@@ -146,7 +146,7 @@ export const fullListHeader = [
     show: true,
     Header: 'Умумий текширув 3',
     accessor: 'check_3',
-    type:'total'
+    type:'checks'
   },
   {
     id: 8,
@@ -155,7 +155,7 @@ export const fullListHeader = [
     show: true,
     Header: 'Умумий текширув 4',
     accessor: 'check_4',
-    type:'total'
+    type:'checks'
   },
   {
     id: 9,

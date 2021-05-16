@@ -63,39 +63,58 @@ export function fullListSelector(data){
 
   const channel2428IN = filter.map((el) => Object.entries(el).filter(([_, item])=>item.channel_id === 2428));
   const channel2429OUT = filter.map((el) => Object.entries(el).filter(([_, item])=>item.channel_id === 2429));
-  const morning_check = channel2428IN.filter((item,_)=>item.map((_, el)=>el.end_time) > 1620802500 || item.map((_, el)=>el.end_time) < 1620803100)
-  const check_1 = channel2428IN.filter((item,_)=>item.map((_, el)=>el.end_time) > 1620813300 || item.map((_, el)=>el.end_time) < 1620813900) 
-  const check_2 = channel2428IN.filter((item,_)=>item.map((_, el)=>el.end_time) > 1620824100 || item.map((_, el)=>el.end_time) < 1620824700)
-  const check_3 = channel2428IN.filter((item,_)=>item.map((_, el)=>el.end_time) > 1620834900 || item.map((_, el)=>el.end_time) < 1620835500)
-  const check_4 = channel2428IN.filter((item,_)=>item.map((_, el)=>el.end_time) > 1620845700 || item.map((_, el)=>el.end_time) < 1620846300)
+  const morning_check = channel2428IN.map((item,_)=>
+    Object.entries(item).filter(([_, el])=>
+      (new Date(el[1].end_time).getHours() === 6 && new Date(el[1].end_time).getMinutes() > 55)
+      || (new Date(el[1].end_time).getHours() === 7 && new Date(el[1].end_time).getMinutes() < 5)));
+  const check_1 = channel2428IN.map((item,_)=>
+    Object.entries(item).filter(([_, el])=>
+      (new Date(el[1].end_time).getHours() === 9 && new Date(el[1].end_time).getMinutes() > 55) 
+      || (new Date(el[1].end_time).getHours() === 10 && new Date(el[1].end_time).getMinutes() < 5)));
+  const check_2 = channel2428IN.map((item,_)=>
+    Object.entries(item).filter(([_, el])=>
+      (new Date(el[1].end_time).getHours() === 12 && new Date(el[1].end_time).getMinutes() > 55) 
+      || (new Date(el[1].end_time).getHours() === 13 && new Date(el[1].end_time).getMinutes() < 5)));
+  const check_3 = channel2428IN.map((item,_)=>
+    Object.entries(item).filter(([_, el])=>
+      (new Date(el[1].end_time).getHours() === 15 && new Date(el[1].end_time).getMinutes() > 55) 
+      || (new Date(el[1].end_time).getHours() === 16 && new Date(el[1].end_time).getMinutes() < 5)));
+  const check_4 = channel2428IN.map((item,_)=>
+    Object.entries(item).filter(([_, el])=>
+      (new Date(el[1].end_time).getHours() === 18 && new Date(el[1].end_time).getMinutes() > 55) 
+      || (new Date(el[1].end_time).getHours() === 19 && new Date(el[1].end_time).getMinutes() < 5)));
   console.log(morning_check)
   console.log(check_1)
   console.log(check_2)
   console.log(check_3)
   console.log(check_4)
-  
+  // 1620973051902 - 1620802500000
   const lastIn = channel2428IN.map((item, _) => Math.max.apply(null,item.map(([_, item])=> [item.end_time])));
   
   const lastOut = channel2429OUT.map((item, _) => Math.max.apply(null,item.map(([_, item])=> [item.end_time])));
   const filterByPeopleIn = channel2428IN.map((item, i)=>item.filter((el, j)=>el[1].end_time === lastIn[i]))
   const filterByPeopleOut = channel2429OUT.map((item, i)=>item.filter((el, j)=>el[1].end_time === lastOut[i]))
 
-  const lastFiltered = [...Array(filter.length)].map((_, i)=>({
-    id: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].id})).toString().split(',')[1],
-    images: {
-      image_thumbnail: parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) > parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) ? 
-      filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i === 1) return item.snapshots[1].path})).toString().split(',')[1] : filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i === 1) return item.snapshots[1].path})).toString().split(',')[1], 
-      quality: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].similarity})).toString().split(',')[1],
-    },
-    full_name: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return `${item.face_identities[0].faces[0].first_name} ${item.face_identities[0].faces[0].last_name}`})).toString().split(',')[1],
-    morning_check: morning_check[i] ? true : false,
-    check_1: check_1[i] ? {check: check_1[i], value: true}:{check: check_1[i], value: false},
-    check_2: check_2[i] ? {check: check_2[i], value: true}:{check: check_2[i], value: false},
-    check_3: check_3[i] ? {check: check_4[i], value: true}:{check: check_3[i], value: false},
-    check_4: check_4[i] ? {check: check_4[i], value: true}:{check: check_4[i], value: false},
-    total_attendees: [morning_check[i], check_1[i], check_2[i], check_3[i], check_4[i]],
-    total_absence: [morning_check[i], check_1[i], check_2[i], check_3[i], check_4[i]],
-    absence_hours: morning_check[i],
-  }))
-  return { data: lastFiltered }
+  try{
+    const lastFiltered = [...Array(filter.length)].map((_, i)=>({
+      id: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].id})).toString().split(',')[1],
+      images: {
+        image_thumbnail: parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) > parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) ? 
+        filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i === 1) return item.snapshots[1].path})).toString().split(',')[1] : filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i === 1) return item.snapshots[1].path})).toString().split(',')[1], 
+        quality: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].similarity})).toString().split(',')[1],
+      },
+      full_name: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return `${item.face_identities[0].faces[0].first_name} ${item.face_identities[0].faces[0].last_name}`})).toString().split(',')[1],
+      morning_check: morning_check[i].length ? {check: morning_check[i], value: true} :{check: morning_check[i], value: false},
+      check_1: check_1[i].length ? {check: check_1[i], value: true}:{check: check_1[i], value: false},
+      check_2: check_2[i].length ? {check: check_2[i], value: true}:{check: check_2[i], value: false},
+      check_3: check_3[i].length ? {check: check_4[i], value: true}:{check: check_3[i], value: false},
+      check_4: check_4[i].length ? {check: check_4[i], value: true}:{check: check_4[i], value: false},
+      total_attendees: [{...morning_check[i], ...check_1[i], ...check_2[i], ...check_3[i], ...check_4[i]}],
+      total_absence: [{...morning_check[i], ...check_1[i], ...check_2[i], ...check_3[i], ...check_4[i]}],
+      absence_hours: morning_check[i],
+    }))
+    return { data: lastFiltered }
+  }catch(err){
+    console.log(err)
+  }
 }

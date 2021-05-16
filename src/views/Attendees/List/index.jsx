@@ -18,10 +18,10 @@ export default ()=> {
   const [pageSize, setPageSize] = useState(0);
   // 2428 = in
   // 2429 = out
-  const [date, setDate] = useState(undefined)
+  const [date, setDate] = useState(undefined);
   const dateFilter = useMemo(
     () => (date
-      ? `&since=${date.toISOString()}&until=${date && (new Date(date.setDate(date.getDate() + 1))).toISOString()}`
+      ? ({ since:date.toISOString(), until: date && (new Date(date.setDate(date.getDate() + 1))).toISOString() })
       : ''),
     [date]
   );
@@ -33,7 +33,7 @@ export default ()=> {
       face:{
         face_ids:[]
       },
-      dateFilter,
+      ...dateFilter,
       topics_by_modules:{
         "Kpx.Synesis.Faces":["FaceMatched"],
         "Kpx.Synesis.Hikvision":["FaceMatched"]
@@ -43,7 +43,7 @@ export default ()=> {
   );
   useEffect(()=>{
     dispatch(getMatchedFaces(query));
-  },[]);
+  },[query]);
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
