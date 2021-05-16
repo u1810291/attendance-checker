@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
+import React from 'react';
 
-import { Container } from './style'
+import { Container } from './style';
 
-const Checked = (checked)=> (
+const Checked = (checked) => (
     checked.value.filter(Boolean).length ?
        <Container color="red">
         {checked.value.filter(Boolean).length}

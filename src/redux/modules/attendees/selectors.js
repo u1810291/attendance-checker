@@ -120,7 +120,7 @@ export function fullListSelector(data){
           !Boolean(check_3[i].length),
           !Boolean(check_4[i].length) ,
         ],
-    absence_hours: (morning_check[i]),
+    absence_hours: 10-(morning_check[i].length+check_1[i].length+check_2[i].length+check_3[i].length+check_4[i].length)*2,
     }))
     return { data: lastFiltered }
   }catch(err){

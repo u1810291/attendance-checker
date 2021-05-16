@@ -57,7 +57,7 @@ export const Container = styled.div`
     }
     th,
     td {
-      text-align: left;
+      text-align: center;
       margin: 0;
       padding: 0.5rem;
       :last-child {
