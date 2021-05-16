@@ -1,15 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
-
-import { Container, Image } from './style'
-import checkedIcon from '../../../assets/icons/checked.png'
-import crossedIcon from '../../../assets/icons/crossed.png'
+import React from 'react';
+import moment from 'moment'
+import { Container, Image, Body } from './style';
+import checkedIcon from '../../../assets/icons/checked.png';
+import crossedIcon from '../../../assets/icons/crossed.png';
 
 const Checked = (checked)=> (
   <Container>
-    {checked.value.check.length ?
-      <div><Image src={checkedIcon} /> {checked.value.check.value}</div> :
-      <div><Image src={crossedIcon} /> {checked.value.check.value}</div>}
+    {console.log(checked.value.check)}
+    {checked.value.check ?
+      <Body><Image src={checkedIcon} /> {moment(new Date(checked.value.check)).format("HH:mm:ss")}</Body> :
+      <Body><Image src={crossedIcon} />-</Body> }
   </Container>
 )
 

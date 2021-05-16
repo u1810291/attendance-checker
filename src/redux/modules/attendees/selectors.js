@@ -99,14 +99,14 @@ export function fullListSelector(data){
         quality: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].similarity})).toString().split(',')[1],
       },
       full_name: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return `${item.face_identities[0].faces[0].first_name} ${item.face_identities[0].faces[0].last_name}`})).toString().split(',')[1],
-      morning_check: morning_check[i].length ? {check: morning_check[i], value: true} :{check: morning_check[i], value: false},
-      check_1: check_1[i].length ? {check: check_1[i], value: true}:{check: check_1[i], value: false},
-      check_2: check_2[i].length ? {check: check_2[i], value: true}:{check: check_2[i], value: false},
-      check_3: check_3[i].length ? {check: check_4[i], value: true}:{check: check_3[i], value: false},
-      check_4: check_4[i].length ? {check: check_4[i], value: true}:{check: check_4[i], value: false},
+      morning_check: morning_check[i].length ? {check: parseInt(morning_check[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1])), value: true} :{check: undefined, value: false},
+      check_1: check_1[i].length ? {check: parseInt(check_1[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1])), value: true}:{check: undefined, value: false},
+      check_2: check_2[i].length ? {check: parseInt(check_2[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1])), value: true}:{check: undefined, value: false},
+      check_3: check_3[i].length ? {check: parseInt(check_3[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1])), value: true}:{check: undefined, value: false},
+      check_4: check_4[i].length ? {check: parseInt(check_4[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1])), value: true}:{check: undefined, value: false},
       total_attendees: [{...morning_check[i], ...check_1[i], ...check_2[i], ...check_3[i], ...check_4[i]}],
       total_absence: [{...morning_check[i], ...check_1[i], ...check_2[i], ...check_3[i], ...check_4[i]}],
-      absence_hours: (morning_check[i].length && 2),
+      absence_hours: (morning_check[i]),
     }))
     return { data: lastFiltered }
   }catch(err){
