@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-`
-export const Cell = styled.div`
-  height: 100%;
+  background: ${({color})=>color};
   width: 100%;
-  background: red;
+  height:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 `

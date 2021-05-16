@@ -30,26 +30,29 @@ export function faceSelector(data){
   const filterByPeopleOut = channel2429OUT.map((item, i)=>item.filter((el, j)=>el[1].end_time === lastOut[i]))
 
   const filtered = [filterByPeopleIn, filterByPeopleOut];  
-  const lastFiltered = [...Array(filter.length)].map((_, i)=>({    
-    id: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].id})).toString().split(',')[1],
-    images: {
-      image_thumbnail: parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) > parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) ? 
-      filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i === 1) return item.snapshots[1].path})).toString().split(',')[1] : filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i === 1) return item.snapshots[1].path})).toString().split(',')[1], 
-      quality: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].similarity})).toString().split(',')[1],
-    },
-    full_name: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return `${item.face_identities[0].faces[0].first_name} ${item.face_identities[0].faces[0].last_name}`})).toString().split(',')[1],
-    in_time: moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
-    out_time: moment(new Date(parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
-    number_of_in: channel2428IN[i].length,
-    number_of_out: channel2429OUT[i].length,
-    time_at_work: `0${(new Date(lastOut[i]).getHours() - new Date(firstIn[i]).getHours())}:${Math.abs(new Date(lastOut[i]).getMinutes() - new Date(firstIn[i]).getMinutes())}`,
-    time_out_work: `${new Date().getHours() - new Date(lastOut[i]).getHours()}:${Math.abs(new Date().getMinutes() - new Date(lastOut[i]).getMinutes())}`,
-    current: parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) > parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) ? 
-      true: false,
-  }))
-  return { data: lastFiltered, filtered }
+  try{
+    const lastFiltered = [...Array(filter.length)].map((_, i)=>({    
+      id: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].id})).toString().split(',')[1],
+      images: {
+        image_thumbnail: parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) > parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) ? 
+        filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i === 1) return item.snapshots[1].path})).toString().split(',')[1] : filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i === 1) return item.snapshots[1].path})).toString().split(',')[1], 
+        quality: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].similarity})).toString().split(',')[1],
+      },
+      full_name: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return `${item.face_identities[0].faces[0].first_name} ${item.face_identities[0].faces[0].last_name}`})).toString().split(',')[1],
+      in_time: moment(new Date(parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
+      out_time: moment(new Date(parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
+      number_of_in: channel2428IN[i].length,
+      number_of_out: channel2429OUT[i].length,
+      time_at_work: `0${Math.abs(new Date(lastOut[i]).getHours() - new Date(firstIn[i]).getHours())}:${Math.abs(new Date(lastOut[i]).getMinutes() - new Date(firstIn[i]).getMinutes())}`,
+      time_out_work: `${Math.abs(new Date().getHours() - new Date(lastOut[i]).getHours())}:${Math.abs(new Date().getMinutes() - new Date(lastOut[i]).getMinutes())}`,
+      current: parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) > parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) ? 
+        true: false,
+    }))
+    return { data: lastFiltered, filtered }
+  }catch(err){
+    console.log(err)
+  }
 }
-
 
 export function fullListSelector(data){
   const matched = [...new Set(data.map((el)=>el.face_identities[0].faces[0].id))];
@@ -83,18 +86,10 @@ export function fullListSelector(data){
     Object.entries(item).filter(([_, el])=>
       (new Date(el[1].end_time).getHours() === 18 && new Date(el[1].end_time).getMinutes() > 55) 
       || (new Date(el[1].end_time).getHours() === 19 && new Date(el[1].end_time).getMinutes() < 5)));
-  console.log(morning_check)
-  console.log(check_1)
-  console.log(check_2)
-  console.log(check_3)
-  console.log(check_4)
-  // 1620973051902 - 1620802500000
   const lastIn = channel2428IN.map((item, _) => Math.max.apply(null,item.map(([_, item])=> [item.end_time])));
-  
   const lastOut = channel2429OUT.map((item, _) => Math.max.apply(null,item.map(([_, item])=> [item.end_time])));
   const filterByPeopleIn = channel2428IN.map((item, i)=>item.filter((el, j)=>el[1].end_time === lastIn[i]))
   const filterByPeopleOut = channel2429OUT.map((item, i)=>item.filter((el, j)=>el[1].end_time === lastOut[i]))
-
   try{
     const lastFiltered = [...Array(filter.length)].map((_, i)=>({
       id: filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.face_identities[0].faces[0].id})).toString().split(',')[1],
@@ -111,7 +106,7 @@ export function fullListSelector(data){
       check_4: check_4[i].length ? {check: check_4[i], value: true}:{check: check_4[i], value: false},
       total_attendees: [{...morning_check[i], ...check_1[i], ...check_2[i], ...check_3[i], ...check_4[i]}],
       total_absence: [{...morning_check[i], ...check_1[i], ...check_2[i], ...check_3[i], ...check_4[i]}],
-      absence_hours: morning_check[i],
+      absence_hours: (morning_check[i].length && 2),
     }))
     return { data: lastFiltered }
   }catch(err){
