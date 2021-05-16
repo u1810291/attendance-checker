@@ -173,7 +173,7 @@ export const fullListHeader = [
     show: true,
     Header: 'Текшируда бўлмади (жами)',
     accessor: 'total_absence',
-    type: 'total'
+    type: 'total_red'
   },
   {
     id: 11,

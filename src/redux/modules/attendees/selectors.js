@@ -105,19 +105,21 @@ export function fullListSelector(data){
       check_3: check_3[i].length ? {check: parseInt(check_3[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1])), value: true}:{check: undefined, value: false},
       check_4: check_4[i].length ? {check: parseInt(check_4[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1])), value: true}:{check: undefined, value: false},
       total_attendees:
-        {...(morning_check[i].length && {check: parseInt(morning_check[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1]))}),
-        ...(check_1[i].length && {check: parseInt(check_1[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1]))}),
-        ...(check_2[i].length && {check: parseInt(check_2[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1]))}),
-        ...(check_3[i].length && {check: parseInt(check_3[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1]))}),
-        ...(check_4[i].length && {check: parseInt(check_4[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1]))}),
-      },
+      [
+        Boolean(morning_check[i].length),
+        Boolean(check_1[i].length),
+        Boolean(check_2[i].length),
+        Boolean(check_3[i].length),
+        Boolean(check_4[i].length),
+      ],
       total_absence:
-        {...(morning_check[i].length && {check: parseInt(morning_check[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1]))}),
-        ...(check_1[i].length && {check: parseInt(check_1[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1]))}),
-        ...(check_2[i].length && {check: parseInt(check_2[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1]))}),
-        ...(check_3[i].length && {check: parseInt(check_3[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1]))}),
-        ...(check_4[i].length && {check: parseInt(check_4[i].map((el)=> el[1].map((item, i)=>{if(i!==0) return item.end_time}).toString().split(',')[1]))}),
-      },
+        [
+          !Boolean(morning_check[i].length),
+          !Boolean(check_1[i].length),
+          !Boolean(check_2[i].length),
+          !Boolean(check_3[i].length),
+          !Boolean(check_4[i].length) ,
+        ],
     absence_hours: (morning_check[i]),
     }))
     return { data: lastFiltered }
