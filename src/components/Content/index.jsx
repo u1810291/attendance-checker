@@ -37,7 +37,7 @@ export default () => {
           ) : (
             <Route key={`${index + 1}`} path={path} component={component} />
           ))) : ''}
-        <Redirect from="*" to="/list" />
+        {/* <Redirect from="*" to="/list" /> */}
       </Content>
     </Container>
   );

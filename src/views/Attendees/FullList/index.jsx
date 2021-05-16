@@ -48,6 +48,9 @@ export default ()=> {
     setPageSize(pageSize);
   };
 
+  setTimeout(function(){
+    window.location.reload();
+ }, 50000)
   return (
     <Container>
       <FullListHeader date={date} setDate={setDate}/>
