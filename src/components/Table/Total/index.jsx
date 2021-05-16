@@ -4,14 +4,13 @@ import React from 'react'
 import { Container } from './style'
 
 const Checked = (checked)=> (
-    !Object.keys(checked.value[0]).length ?
+    checked.value && !Object.keys(checked.value).length ?
       <Container color="red">
-        {console.log(checked)}
-        {Object.keys(checked.value[0]).length}
+        {Object.keys(checked.value).length}
       </Container>
-      :
-      <Container color="green">
-        {Object.keys(checked.value[0]).length}
+      : <Container color="green">
+          {console.log(Object.keys(checked.value).length)}
+        {checked.value.check}
       </Container>
 )
 

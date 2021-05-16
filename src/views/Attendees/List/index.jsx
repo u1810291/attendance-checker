@@ -16,6 +16,8 @@ export default ()=> {
   const headers = useMemo(() => headerMaker(header), [header])
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
+  const [currentCount, setCount] = useState(10);
+  const timer = () => setCount(currentCount - 1);
   // 2428 = in
   // 2429 = out
   const [date, setDate] = useState(undefined);
@@ -43,7 +45,13 @@ export default ()=> {
   );
   useEffect(()=>{
     dispatch(getMatchedFaces(query));
-  },[query]);
+    if (currentCount <= 0) {
+      return;
+    }
+    const id = setInterval(timer, 10);
+    return () => clearInterval(id);
+    
+  },[query, currentCount]);
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);

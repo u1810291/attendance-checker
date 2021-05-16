@@ -7,7 +7,6 @@ import crossedIcon from '../../../assets/icons/crossed.png';
 
 const Checked = (checked)=> (
   <Container>
-    {console.log(checked.value.check)}
     {checked.value.check ?
       <Body><Image src={checkedIcon} /> {moment(new Date(checked.value.check)).format("HH:mm:ss")}</Body> :
       <Body><Image src={crossedIcon} />-</Body> }
