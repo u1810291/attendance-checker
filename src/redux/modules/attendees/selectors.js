@@ -43,8 +43,16 @@ export function faceSelector(data){
       out_time: moment(new Date(parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]))).format("HH:mm:ss"),
       number_of_in: channel2428IN[i].length,
       number_of_out: channel2429OUT[i].length,
-      time_at_work: `0${Math.abs(new Date(lastOut[i]).getHours() - new Date(firstIn[i]).getHours())}:${Math.abs(new Date(lastOut[i]).getMinutes() - new Date(firstIn[i]).getMinutes())}`,
-      time_out_work: `${Math.abs(new Date().getHours() - new Date(lastOut[i]).getHours())}:${Math.abs(new Date().getMinutes() - new Date(lastOut[i]).getMinutes())}`,
+      time_at_work: `${isNaN(Math.abs(new Date(lastOut[i]).getHours() - new Date(firstIn[i]).getHours())) 
+        ? 0 
+        : Math.abs(new Date(lastOut[i]).getHours() - new Date(firstIn[i]).getHours())}:${isNaN(Math.abs(new Date(lastOut[i]).getMinutes() - new Date(firstIn[i]).getMinutes())) 
+        ? 0
+        : Math.abs(new Date(lastOut[i]).getMinutes() - new Date(firstIn[i]).getMinutes())}`,
+      time_out_work: `${isNaN(Math.abs(new Date().getHours() - new Date(lastOut[i]).getHours())) 
+        ? 0 
+        : Math.abs(new Date().getHours() - new Date(lastOut[i]).getHours())}:${isNaN(Math.abs(new Date().getMinutes() - new Date(lastOut[i]).getMinutes()))
+        ? 0
+        : Math.abs(new Date().getMinutes() - new Date(lastOut[i]).getMinutes())}`,
       current: parseInt(filterByPeopleIn[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) > parseInt(filterByPeopleOut[i].map((el)=>el.map((item, i)=> {if(i !== 0) return item.start_time})).toString().split(',')[1]) ? 
         true: false,
     }))
