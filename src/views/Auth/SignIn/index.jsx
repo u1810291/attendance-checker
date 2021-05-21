@@ -4,8 +4,8 @@ import { login, verify } from '../../../redux/modules/auth/actions';
 import { useDispatch } from 'react-redux';
 
 export default ()=> {
-  const [name, setName] = useState('');
   const dispatch = useDispatch()
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();

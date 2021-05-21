@@ -13,9 +13,7 @@ export default () => {
       <Navbar />
       <Content>
         {childRoutes
-          ? childRoutes.map(({
-            path, component, children, props
-          }, index) => (children.length ? (
+          ? childRoutes.map(({ path, component, children, props }, index) => (children.length ? (
             <div key={`${index + 1}`}>
               {children.map((child, childIndex) => (
                 <Route

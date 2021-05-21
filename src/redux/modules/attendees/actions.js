@@ -10,6 +10,16 @@ export const fetchData = (payload) => ({
   payload
 });
 
+
+
+
+
+
+
+
+
+
+
 export const getMatchedFaces = (payload) => ({
   type: types.TABLE_MATCHED_FACES_DATA,
   payload
