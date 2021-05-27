@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React, { useRef, useEffect, useState } from 'react';
 import moment from 'moment';
 import 'react-date-range/dist/styles.css'; // main style file
