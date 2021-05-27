@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import { login, verify } from '../../../redux/modules/auth/actions';
 import { useDispatch } from 'react-redux';
+import { PrimaryButton } from '../../../components/Buttons';
+import { NormalInput, PasswordInput } from '../../../components/Forms/Inputs'
+import { Container, FormContainer } from './style'
 
 export default ()=> {
   const dispatch = useDispatch()
@@ -17,12 +20,25 @@ export default ()=> {
     }))
   }
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input value={name} onChange={(e)=>setName(e.target.value)} />
-        <input value={password} onChange={(e)=>setPassword(e.target.value)} />
-        <button>Кириш</button>
-      </form>
-    </div>
+    <Container>
+      <FormContainer onSubmit={handleSubmit}>
+        <NormalInput 
+          value={name}
+          name="name"
+          white
+          size="medium"
+          placeholder="Username"
+          onChange={(e)=>setName(e.target.value)} />
+        <PasswordInput 
+          value={password} 
+          onChange={(e)=>setPassword(e.target.value)} 
+          name="password"
+          white
+          size="medium"
+          placeholder="Password"
+        />
+        <PrimaryButton title="Кириш" size="large" type="submit"/>
+      </FormContainer>
+    </Container>
   )
 }
