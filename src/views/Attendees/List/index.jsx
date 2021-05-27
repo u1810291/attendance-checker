@@ -21,7 +21,10 @@ export default ()=> {
   const [date, setDate] = useState(undefined);
   const dateFilter = useMemo(
     () => (date
-      ? ({ since:date.toISOString(), until: date && (new Date(date.setDate(date.getDate() + 1))).toISOString() })
+      ? ({ 
+        since: date.start.toISOString(), 
+        until:date.end.toISOString() 
+      })
       : ''),
     [date]
   );
@@ -43,7 +46,7 @@ export default ()=> {
   );
   useEffect(()=>{
     dispatch(getMatchedFaces(query));
-  },[query]);
+  },[query, date,setDate]);
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
