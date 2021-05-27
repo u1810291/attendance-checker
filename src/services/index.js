@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const service = axios;
+const service = axios.create();
 
 service.interceptors.response.use(
   (res) => res,
